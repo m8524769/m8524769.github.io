@@ -1,0 +1,54 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+body{
+    margin: 60px auto;
+    width: 56%;
+    background-color: rgb(255, 247, 215);
+}
+
+nav ul, footer ul {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    padding: 1px;
+    li {
+        display: inline;
+        margin-right: 20px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #999;
+    &:hover { text-decoration: underline; }
+}
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.2em;
+}
+
+p {
+    font-family:'Open Sans', 'HYQiHei-55S', 'Noto Sans SC',  sans-serif;
+    font-size: 1.5em;
+    line-height: 1.2em;
+    color: #333;
+}
+
+footer {
+    border-top: 1px solid #d5d5d5;
+    font-size: 1.1em;
+}
+
+ul.posts {
+    margin: 20px auto 40px;
+    font-size: 1.5em;
+    li {
+        list-style: none;
+    }
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import "syntax-highlighting";
