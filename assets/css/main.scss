@@ -6,12 +6,14 @@
 body{
     margin: 60px auto;
     width: 56%;
+    background: url("../images/bg1.jpeg");
+    background-size: 100% 100%;
     background-color: rgb(255, 247, 215);
 }
 
 nav ul, footer ul {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
+    font-size: 1rem;
     padding: 1px;
     li {
         display: inline;
@@ -27,24 +29,24 @@ a {
 
 h1 {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 3.2em;
+    font-size: 3.2rem;
 }
 
 p {
     font-family:'Open Sans', 'HYQiHei-55S', 'Noto Sans SC',  sans-serif;
-    font-size: 1.5em;
-    line-height: 1.2em;
+    font-size: 1.5rem;
+    line-height: 1.2rem;
     color: #333;
 }
 
 footer {
     border-top: 1px solid #d5d5d5;
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 
 ul.posts {
     margin: 20px auto 40px;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     li {
         list-style: none;
     }
