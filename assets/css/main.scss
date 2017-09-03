@@ -1,11 +1,10 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
+# The main Sass file
 ---
 @charset "utf-8";
 
-body{
-    margin: 60px auto;
-    width: 56%;
+body {
+    margin: auto;
     background: url("../images/bg1.jpeg");
     background-size: auto;
     background-color: black;
@@ -16,30 +15,43 @@ body{
 
 nav ul, footer ul {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
+    font-size: 1.8rem;
     padding: 1px;
     li {
-        display: inline;
+        display: inline-block;
         margin-right: 20px;
     }
 }
 
 a {
     text-decoration: none;
-    color: cyan;
+    color: paleturquoise;
     &:hover { text-decoration: underline; }
 }
 
-h1 {
-    font-family: 'Josefin Sans', sans-serif;
+#cover {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 560px;
+    width: 960px;
+    height: 100px;
     font-size: 4rem;
-    color: whitesmoke;
+    text-align: center;
+    background-color: black;
+    opacity: 0.6;
+}
+
+#description {
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
 }
 
 iframe {
     position: absolute;
     right: 0px;
-    top: 0px;
+    bottom: 0px;
+    filter: alpha(Opacity=80);
+    opacity: 0.8;
 }
 
 p {
@@ -50,18 +62,20 @@ p {
 }
 
 footer {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
     border-top: 1px solid #d5d5d5;
-    font-size: 1.1rem;
+    text-align: center;
     color: whitesmoke;
+    opacity: 0.9;
 }
 
 ul.posts {
     margin: 20px auto 40px;
-    font-size: 1.5rem;
     li {
         list-style: none;
     }
 }
 
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import "syntax-highlighting";
+@import "font-awesome";

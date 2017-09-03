@@ -1,10 +1,13 @@
-function changeDescriptionByClick() {
+window.onload = function changeDescriptionByClick() {
     var descriptions = [
         "How are you today?",
-        ".........",
-        "(･ω´･ )",
-        "emmmmmmmmmmmmmm",
-        "(´⊙ω⊙`)"
+        "My name is Wang Lei.",
+        "And yk is the nickname.",
+        "Here is my GitHub Page,",
+        "which is only a demo.",
+        "I wish you like it.",
+        "Anyway..",
+        "Have a good time, bro!",
     ];
     var i = 0;
     var description = document.getElementById("description");
