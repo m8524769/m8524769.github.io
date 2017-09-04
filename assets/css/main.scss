@@ -1,10 +1,18 @@
 ---
 # The main Sass file
 ---
+
 @charset "utf-8";
+
+html {
+    font-size: 100%;
+}
 
 body {
     margin: auto;
+    overflow: auto;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: url("../images/bg1.jpeg");
     background-size: auto;
     background-color: black;
@@ -13,49 +21,52 @@ body {
     background-repeat: no-repeat;
 }
 
-nav ul, footer ul {
+nav ul {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.8rem;
     padding: 1px;
     li {
         display: inline-block;
-        margin-right: 20px;
+        margin-right: 1.25rem;
     }
 }
 
 a {
     text-decoration: none;
     color: paleturquoise;
-    &:hover { text-decoration: underline; }
+    &:hover { color: cyan; }
 }
 
-#cover {
-    margin: auto;
+#particles-js {
+    position: inherit;
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+
+#frontcover {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 560px;
-    width: 960px;
-    height: 100px;
+    margin: auto;
+    top: 0; left: 0; right: 0; bottom: 35.625rem;
+    width: 60rem;
+    height: 6.25rem;
     font-size: 4rem;
     text-align: center;
     background-color: black;
     opacity: 0.6;
+    h1 {
+        font-family: 'Josefin Sans', sans-serif;
+        color: white;
+    };
 }
 
-#description {
-    font-family: 'Josefin Sans', sans-serif;
-    color: white;
-}
 
 iframe {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    filter: alpha(Opacity=80);
+    position: fixed;
+    right: 0; bottom: 1rem;
     opacity: 0.8;
 }
 
 p {
-    font-family:'Open Sans', 'HYQiHei-55S', 'Noto Sans SC',  sans-serif;
+    font-family:'Open Sans', sans-serif;
     font-size: 2rem;
     line-height: 1.2rem;
     color: whitesmoke;
@@ -68,10 +79,19 @@ footer {
     text-align: center;
     color: whitesmoke;
     opacity: 0.9;
+    ul {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.5rem;
+        padding: 1px;
+        li {
+            display: inline-block;
+            margin-right: 1.25rem;
+        }
+    }
 }
 
 ul.posts {
-    margin: 20px auto 40px;
+    margin: 1.25rem auto 2.5rem;
     li {
         list-style: none;
     }
