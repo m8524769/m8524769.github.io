@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-{% include head.html %}
+	{% include head.html %}
 
-	<body>
+	<body onselectstart="return false">
 
 		<div id="particles-js">
 
 			{% include header.html %}
 
-			<div class="container">
-				{{ content }}
-			</div>
+			{% include container.html %}
 
 			{% include footer.html %}
 
