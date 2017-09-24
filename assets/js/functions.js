@@ -32,10 +32,11 @@ function randomMusic() {
         "404783169", // Bright Side
         "427542254", // Kaleidoscope
         "419594258", // Hymn For The Weekend [Remix]
-        "27929366",  // Shotgun (feat. Rochelle)
-        "461518837", // Good Day
-        "29732234",  // Till It Hurts (Radio Edit)
-        "440208433", // Love & War (Original Mix)
+        "407677659", // Faded (Conor Maynard Cover)
+        "428350510", // Shanghai
+        "409031839", // I Took A Pill In Ibiza
+        "29761105",  // Downtown
+        "30064291",  // Green Sky
     ];
     var srcPrefix = "//music.163.com/outchain/player?type=2&auto=1&height=66&id=";
     var randomNum = Math.floor(Math.random() * songID.length);
