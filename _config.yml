@@ -5,15 +5,15 @@ title       : "Github Page"
 separator   : "|"
 description : "Hey Bro, Fantastic to have you here!"
 url         : "https://m8524769.github.io"
-baseurl     : "/"
 github      : "m8524769"
 github_url  : "https://github.com/m8524769"
 
 
+# Nav List
 menu:
-- {name: Home, url: ''}
-- {name: Blog, url: 'blog'}
-- {name: About Me, url: 'about'}
+- {name: Home, url: '#'}
+- {name: Blog, url: '#blog'}
+- {name: About Me, url: '#about'}
 
 
 # Conversion
