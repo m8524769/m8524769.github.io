@@ -1,13 +1,21 @@
 <header>
 
-    <nav>
-        <ul>
+    <a id="logo" href="/">
+        {{ site.name }}{{ site.separator }}{{ site.title }}
+    </a>
+    <!-- <nav> -->
+        <!-- <ul>
             {% for each in site.menu %}
-            <li><a href="{{ each.url }}">{{ each.name }}</a></li>
+            <li><a href="{{ each.url }}">{{ each.name }}<a></li>
             {% endfor %}
-        </ul>
-    </nav>
+        </ul> -->
+    <!-- </nav> -->
 
-    <h1 id="description">{{ site.description }}</h1>
+    <!-- <h1 id="inner">{{ site.description }}</h1> -->
+
+    <a id="github" href={{ site.github_url }} target="_blank">
+        {% octicon mark-github height:56 %}
+    </a>
+
 
 </header>

@@ -1,20 +1,22 @@
 # Site Settings
-email       : "m8524769@163.com"
 name        : "yk"
-title       : "Github Page"
-separator   : "|"
+real_name   : "王磊"
+email       : "m8524769@163.com"
+title       : "Blog"
+separator   : "'s "
 description : "Hey Bro, Fantastic to have you here!"
 url         : "https://m8524769.github.io"
 github      : "m8524769"
 github_url  : "https://github.com/m8524769"
 
+plugins:
+  - jekyll-octicons
 
 # Nav List
-menu:
-- {name: Home, url: '#'}
-- {name: Blog, url: '#blog'}
-- {name: About Me, url: '#about'}
-
+# menu:
+# - {name: Home, url: '#'}
+# - {name: Blog, url: '#blog'}
+# - {name: About Me, url: '#about'}
 
 # Conversion
 markdown: kramdown
@@ -22,7 +24,6 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
-
 
 # Markdown Processing
 kramdown:
@@ -34,7 +35,6 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
-
 
 # Sass/SCSS
 sass:
