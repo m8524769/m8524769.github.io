@@ -2,8 +2,6 @@
    Syntax highlighting
    ========================================================================== */
 
-$sans-serif: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-
 code.highlighter-rouge {
     background-color: #252525;
     color: #66d9ef;
@@ -25,7 +23,7 @@ figure.highlight {
     margin-bottom: 1em;
     padding: 0 1.1rem;
     pre code {
-        font-family: "Fira Code", monospace;
+        font-family: "Fira Code", $full-width, monospace;
     }
     font-size: 1.1rem;
     line-height: 1.4;

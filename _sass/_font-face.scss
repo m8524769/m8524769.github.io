@@ -1,3 +1,10 @@
+/* ==========================================================================
+   Font Face
+   ========================================================================== */
+
+$sans-serif: -apple-system, ".SFNSText-Regular", "San Francisco", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial;
+$full-width: "HYQiHei", "Microsoft YaHei UI", "Hiragino Sans GB";
+
 @font-face{
     font-family: 'Fira Code';
     src: url('/assets/fonts/FiraCode-Regular.woff2') format('woff2');

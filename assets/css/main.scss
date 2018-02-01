@@ -11,8 +11,10 @@
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans+Condensed);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-html {
-    font-size: 100%;
+html { font-size: 100%; }
+
+@media only screen and (max-width: 480px) {
+    html { font-size: 75%; }
 }
 
 body {
@@ -21,7 +23,8 @@ body {
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: #252525;
     color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', $full-width, sans-serif;
+    font-size: 1.2rem;
 }
 
 #particles-js {
@@ -39,7 +42,6 @@ a {
 }
 
 header {
-    // position: relative;
     height: 5rem;
     background-color: #353535;
     color: #eeeeee;
@@ -64,8 +66,14 @@ header {
     }
 }
 
+@keyframes appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 #container {
     // background-color: #8a8a8ac4;
+    animation: appear 1s;
     background-color: #00000000;
     opacity: 0.95;
     margin: 2rem auto;
@@ -85,7 +93,6 @@ header {
 
         section {
             background-color: #353535;
-            font-size: 1.2rem;
             margin: 0.4rem 1rem;
             padding: 0.1rem 2rem;
             transition: opacity 0.2s;
@@ -104,12 +111,12 @@ header {
 }
 
 article {
+    animation: appear 1s;
     background-color: #353535;
     opacity: 0.98;
     max-width: 48rem;
-    font-size: 1.2rem;
-    margin: 2.4rem auto;
-    padding: 1.2rem 2rem;
+    margin: 2% auto;
+    padding: 0.8% 1%;
     h1, h2, h3, time, p {
         padding: 0 2.5rem;
     }
@@ -129,8 +136,6 @@ footer {
     align-items: center;
 
     span {
-        font-size: 1.2rem;
-        color: #ffffff;
         a {
             color: #ae81ff;
             text-decoration: underline;
