@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My First Post!"
-date: 2018-01-28 20:31:00 +0530
+date: 2018-01-28 20:00:00 +0800
 author: yk
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
@@ -17,9 +17,9 @@ You’ll find this post in your `_posts` directory. Go ahead and edit it and re-
 ### 我能吞下玻璃而不伤身体。
 ## 我能吞下玻璃而不伤身体。
 
-_Double:_ 。：，：（×！？‘’“”）
+_Double:_ 。：，;（×！？‘’、“”）
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. (中文字体测试)File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 {% highlight ruby %}
 def print_hi(name)
