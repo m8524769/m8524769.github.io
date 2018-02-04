@@ -15,6 +15,7 @@ html { font-size: 100%; }
 
 @media only screen and (max-width: 480px) {
     html { font-size: 75%; }
+    svg { height: 3.6rem; }
 }
 
 body {
@@ -24,7 +25,7 @@ body {
     background-color: #252525;
     color: #ffffff;
     font-family: 'Open Sans', $full-width, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 #particles-js {
@@ -40,6 +41,7 @@ a {
         opacity: 0.75;
     }
 }
+
 
 header {
     height: 5rem;
