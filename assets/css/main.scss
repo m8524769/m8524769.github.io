@@ -13,9 +13,12 @@
 
 html { font-size: 100%; }
 
+@media only screen and (max-width: 1000px) {
+    #description { font-size: 0; }
+}
 @media only screen and (max-width: 480px) {
     html { font-size: 75%; }
-    svg { height: 3.6rem; }
+    .octicon-mark-github { height: 3.6rem; }
 }
 
 body {
@@ -26,6 +29,12 @@ body {
     color: #ffffff;
     font-family: 'Open Sans', $full-width, sans-serif;
     font-size: 1.3rem;
+}
+
+#bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0;
 }
 
 #particles-js {
@@ -42,10 +51,9 @@ a {
     }
 }
 
-
 header {
     height: 5rem;
-    background-color: #353535;
+    background-color: #353535dd;
     color: #eeeeee;
     opacity: 0.95;
 
@@ -60,6 +68,17 @@ header {
         margin: 3%;
         padding-bottom: 0.2rem;
     }
+    #description {
+        color: #00000000;
+        font-family: 'Fira Sans Condensed', sans-serif;
+        font-weight: 400;
+        padding-right: 5.3rem;
+        padding-bottom: 0.2rem;
+        transition: color 1s;
+        &:hover {
+            color: #eeeeee;
+        }
+    }
     #github {
         color: inherit; // #EEEEEE
         fill: currentColor;
@@ -68,14 +87,14 @@ header {
     }
 }
 
-@keyframes appear {
+@keyframes fadein {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
 #container {
     // background-color: #8a8a8ac4;
-    animation: appear 1s;
+    animation: fadein 1s;
     background-color: #00000000;
     opacity: 0.95;
     margin: 2rem auto;
@@ -103,24 +122,23 @@ header {
             }
             a {
                 color: inherit; // #FFFFFF
-                #postdate {
-                    font-size: 1rem;
-                    font-style: italic;
-                }
             }
         }
     }
 }
 
 article {
-    animation: appear 1s;
+    animation: fadein 1s;
     background-color: #353535;
     opacity: 0.98;
     max-width: 48rem;
-    margin: 2% auto;
+    margin: 1.2% auto;
     padding: 0.8% 1%;
-    h1, h2, h3, time, p {
+    h1, h2, h3, time, p{
         padding: 0 2.5rem;
+    }
+    ul {
+        padding: 0 4rem;
     }
     a {
         color: #ae81ff;
@@ -129,13 +147,13 @@ article {
 }
 
 footer {
-    border-top: 1px solid #eeeeee;
-    background-color: inherit; // #252525
+    background-color: #353535cc;
     opacity: 0.9;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0.2rem 0;
 
     span {
         a {

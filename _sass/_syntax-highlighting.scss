@@ -12,7 +12,7 @@ code.highlighter-rouge {
 }
 
 blockquote {
-    background-color: #252525;
+    background-color: #252525dd;
     color: #eeeeee;
     border-left: 2px solid #66d9ef;
 }
@@ -29,7 +29,27 @@ figure.highlight {
     line-height: 1.4;
     border: 1px solid #eeeeee;
     border-radius: 4px;
-    background-color: #252525;
+    background-color: #252525dd;
+}
+
+.light {
+    background-color: #eeeeeebb;
+    color: #252525dd;
+    transition: 1s;
+    p > code {
+        background-color: #eeeeee88;
+        color: #252525cc;
+        border: 1px solid #ffffff;
+        border-radius: 0;
+    }
+    pre > code {
+        color: #ffffff;
+    }
+    blockquote {
+        background-color: #eeeeee88;
+        color: #252525cc;
+        border-left: 4px solid #35353588;
+    }
 }
 
 .highlight {
