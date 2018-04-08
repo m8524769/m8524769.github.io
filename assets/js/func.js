@@ -22,6 +22,7 @@ const updateDescriptionByClick = () => {
         "Have a good time!!",
     ]
     let description = document.getElementById("description")
+    description.style.transition = "color 1s"
     let i = 0
     description.addEventListener("click", () => {
         if (i < inners.length) {
@@ -32,6 +33,9 @@ const updateDescriptionByClick = () => {
             bg.style.animation = "fadein 4s"
             bg.style.opacity = 1
             document.getElementById("article").classList.add('light')
+            description.style.color = "#eeeeee"
+            description.style.transition = "opacity 1.5s"
+            description.style.opacity = 0
         }
     })
 }
