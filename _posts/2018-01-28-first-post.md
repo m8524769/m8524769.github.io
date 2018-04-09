@@ -19,6 +19,10 @@ You’ll find this post in your `_posts` directory. Go ahead and edit it and re-
 
 _Double:_ 。：，;（×！？‘’、“”）
 
+- first
+- second
+    + third
+
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. (中文字体测试)File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 {% highlight ruby %}
