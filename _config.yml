@@ -12,12 +12,6 @@ github_url  : "https://github.com/m8524769"
 plugins:
   - jekyll-octicons
 
-# Nav List
-# menu:
-# - {name: Home, url: '#'}
-# - {name: Blog, url: '#blog'}
-# - {name: About Me, url: '#about'}
-
 # Conversion
 markdown: kramdown
 highlighter: rouge
