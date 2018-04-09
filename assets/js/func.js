@@ -4,15 +4,19 @@ window.onload = () => {
 }
 
 const randomPicture = () => {
-    let srcPrefix = "https://source.unsplash.com/random/"
+    let srcPrefix = 'https://source.unsplash.com/random/'
     let resolution = `${screen.width}x${screen.height}`
+    let baseUrl = srcPrefix.concat(resolution)
     document.getElementById("bg").src = srcPrefix.concat(resolution)
 
     caches.open('bg-next').then(cache => {
-        cache.add(srcPrefix.concat(resolution))
+        caches.match(baseUrl).then(response => {
+            console.log(response)
+            cache.add(response.url)
+        })
     })
 
-    localStorage["visited"] = true
+    localStorage['visited'] = true
 }
 
 const updateDescriptionByClick = () => {
