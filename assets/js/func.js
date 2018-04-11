@@ -1,27 +1,37 @@
-window.onload = () => {
-    randomPicture()
-    updateDescriptionByClick()
-}
-
-const randomPicture = () => {
-    let srcPrefix = 'https://source.unsplash.com/random/'
+const randomBackground = () => {
+    let bgImg = document.getElementById('bg')
+    let baseURL = 'https://source.unsplash.com/random/'
     let resolution = `${screen.width}x${screen.height}`
-    let baseUrl = srcPrefix.concat(resolution)
-    document.getElementById("bg").src = srcPrefix.concat(resolution)
+    let imageURL = baseURL.concat(resolution)
 
-    caches.open('bg-next').then(cache => {
-        caches.match(baseUrl).then(response => {
-            console.log(response)
-            cache.add(response.url)
+    caches.match(imageURL).then(response => {
+        bgImg.src = response.url
+    }).catch(() => {
+        fetch(imageURL).then(response => {
+            if (response.ok) {
+                bgImg.src = response.url
+                caches.open('bg-next').then(cache => {
+                    cache.put(imageURL, response)
+                })
+            } else {
+                console.log('Response was not ok.')
+            }
+        }).catch(error => {
+            console.log(error.message)
         })
     })
 
-    localStorage['visited'] = true
+    fetch(imageURL).then(response => {
+        caches.open('bg-next').then(cache => {
+            cache.put(imageURL, response)
+        })
+    })
 }
 
-const updateDescriptionByClick = () => {
+window.init = () => {
+    randomBackground()
     let inners = [
-        "Here is my personal blog",
+        "It's my personal blog",
         "Anyway..",
         "Have a good time!!",
     ]
@@ -42,4 +52,7 @@ const updateDescriptionByClick = () => {
             description.style.opacity = 0
         }
     })
+    localStorage['visited'] = true
 }
+
+window.init()
