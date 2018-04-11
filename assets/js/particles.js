@@ -111,7 +111,6 @@ var pJS = function(tag_id){
   var pJS = this.pJS
   pJS.tmp.obj = {
     size_value: pJS.particles.size.value,
-    size_anim_speed: pJS.particles.size.anim.speed,
     move_speed: pJS.particles.move.speed,
     line_linked_distance: pJS.particles.line_linked.distance,
     line_linked_width: pJS.particles.line_linked.width,
@@ -129,7 +128,6 @@ var pJS = function(tag_id){
     pJS.canvas.w = pJS.canvas.el.offsetWidth * pJS.canvas.pxratio
     pJS.canvas.h = pJS.canvas.el.offsetHeight * pJS.canvas.pxratio
     pJS.particles.size.value = pJS.tmp.obj.size_value * pJS.canvas.pxratio
-    pJS.particles.size.anim.speed = pJS.tmp.obj.size_anim_speed * pJS.canvas.pxratio
     pJS.particles.move.speed = pJS.tmp.obj.move_speed * pJS.canvas.pxratio
     pJS.particles.line_linked.distance = pJS.tmp.obj.line_linked_distance * pJS.canvas.pxratio
     pJS.interactivity.modes.grab.distance = pJS.tmp.obj.mode_grab_distance * pJS.canvas.pxratio
@@ -142,21 +140,15 @@ var pJS = function(tag_id){
     pJS.canvas.el.width = pJS.canvas.w
     pJS.canvas.el.height = pJS.canvas.h
     if(pJS && pJS.interactivity.events.resize){
-      window.addEventListener('resize', function(){
-          pJS.canvas.w = pJS.canvas.el.offsetWidth
-          pJS.canvas.h = pJS.canvas.el.offsetHeight
-          if(pJS.tmp.retina){
-            pJS.canvas.w *= pJS.canvas.pxratio
-            pJS.canvas.h *= pJS.canvas.pxratio
-          }
-          pJS.canvas.el.width = pJS.canvas.w
-          pJS.canvas.el.height = pJS.canvas.h
-          if(!pJS.particles.move.enable){
-            pJS.fn.particlesEmpty()
-            pJS.fn.particlesCreate()
-            pJS.fn.particlesDraw()
-            pJS.fn.vendors.densityAutoParticles()
-          }
+      window.addEventListener('resize',()=>{
+        pJS.canvas.w = pJS.canvas.el.offsetWidth
+        pJS.canvas.h = pJS.canvas.el.offsetHeight
+        if(pJS.tmp.retina){
+          pJS.canvas.w *= pJS.canvas.pxratio
+          pJS.canvas.h *= pJS.canvas.pxratio
+        }
+        pJS.canvas.el.width = pJS.canvas.w
+        pJS.canvas.el.height = pJS.canvas.h
         pJS.fn.vendors.densityAutoParticles()
       })
     }
@@ -168,14 +160,7 @@ var pJS = function(tag_id){
     pJS.canvas.ctx.clearRect(0, 0, pJS.canvas.w, pJS.canvas.h)
   }
   pJS.fn.particle = function(color, opacity, position){
-    this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value
-    if(pJS.particles.size.anim.enable){
-      this.size_status = false
-      this.vs = pJS.particles.size.anim.speed / 100
-      if(!pJS.particles.size.anim.sync){
-        this.vs = this.vs * Math.random()
-      }
-    }
+    this.radius = Math.random() * pJS.particles.size.value
     this.x = position ? position.x : Math.random() * pJS.canvas.w
     this.y = position ? position.y : Math.random() * pJS.canvas.h
     if(this.x > pJS.canvas.w - this.radius*2) this.x = this.x - this.radius
@@ -211,13 +196,11 @@ var pJS = function(tag_id){
       this.color = color
       this.color.rgb = hexToRgb(this.color.value)
     }
-    this.opacity = (pJS.particles.opacity.random ? Math.random() : 1) * pJS.particles.opacity.value
+    this.opacity = Math.random() * pJS.particles.opacity.value
     if(pJS.particles.opacity.anim.enable){
       this.opacity_status = false
       this.vo = pJS.particles.opacity.anim.speed / 100
-      if(!pJS.particles.opacity.anim.sync){
-        this.vo = this.vo * Math.random()
-      }
+      this.vo = this.vo * Math.random()
     }
     var velbase = { x:0, y:0 }
     if(pJS.particles.move.straight){
@@ -271,11 +254,6 @@ var pJS = function(tag_id){
       break
     }
     pJS.canvas.ctx.closePath()
-    if(pJS.particles.shape.stroke.width > 0){
-      pJS.canvas.ctx.strokeStyle = pJS.particles.shape.stroke.color
-      pJS.canvas.ctx.lineWidth = pJS.particles.shape.stroke.width
-      pJS.canvas.ctx.stroke()
-    }
     pJS.canvas.ctx.fill()
   }
   pJS.fn.particlesCreate=()=>{
@@ -327,12 +305,7 @@ var pJS = function(tag_id){
       if(pJS.particles.line_linked.enable || pJS.particles.move.attract.enable){
         for(var j = i+1; j < pJS.particles.array.length; j++){
           var p2 = pJS.particles.array[j]
-          if(pJS.particles.line_linked.enable){
-            pJS.fn.interact.linkParticles(p,p2)
-          }
-          if(pJS.particles.move.attract.enable){
-            pJS.fn.interact.attractParticles(p,p2)
-          }
+          pJS.fn.interact.linkParticles(p,p2)
         }
       }
     }
@@ -351,9 +324,6 @@ var pJS = function(tag_id){
   pJS.fn.particlesRefresh=()=>{
     cancelRequestAnimFrame(pJS.fn.checkAnimFrame)
     cancelRequestAnimFrame(pJS.fn.drawAnimFrame)
-    pJS.tmp.source_svg = undefined
-    pJS.tmp.img_obj = undefined
-    pJS.tmp.count_svg = 0
     pJS.fn.particlesEmpty()
     pJS.fn.canvasClear()
     pJS.fn.vendors.start()
@@ -374,19 +344,6 @@ var pJS = function(tag_id){
         pJS.canvas.ctx.stroke()
         pJS.canvas.ctx.closePath()
       }
-    }
-  }
-  pJS.fn.interact.attractParticles=(p1, p2)=>{
-    var dx = p1.x - p2.x,
-        dy = p1.y - p2.y,
-        dist = Math.sqrt(dx*dx + dy*dy)
-    if(dist <= pJS.particles.line_linked.distance){
-      var ax = dx/(pJS.particles.move.attract.rotateX*1000),
-          ay = dy/(pJS.particles.move.attract.rotateY*1000)
-      p1.vx -= ax
-      p1.vy -= ay
-      p2.vx += ax
-      p2.vy += ay
     }
   }
   pJS.fn.modes.pushParticles=(nb, pos)=>{
@@ -412,15 +369,12 @@ var pJS = function(tag_id){
   }
   pJS.fn.modes.removeParticles=(nb)=>{
     pJS.particles.array.splice(0, nb)
-    if(!pJS.particles.move.enable){
-      pJS.fn.particlesDraw()
-    }
   }
   pJS.fn.modes.grabParticle=(p)=>{
     if(pJS.interactivity.events.onhover.enable && pJS.interactivity.status == 'mousemove'){
       var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
-          dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
-          dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse)
+        dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
+        dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse)
       if(dist_mouse <= pJS.interactivity.modes.grab.distance){
         var opacity_line = pJS.interactivity.modes.grab.line_linked.opacity - (dist_mouse / (1/pJS.interactivity.modes.grab.line_linked.opacity)) / pJS.interactivity.modes.grab.distance
         if(opacity_line > 0){
@@ -437,45 +391,29 @@ var pJS = function(tag_id){
     }
   }
   pJS.fn.vendors.eventsListeners=()=>{
-    if(pJS.interactivity.detect_on == 'window'){
-      pJS.interactivity.el = window
-    }else{
-      pJS.interactivity.el = pJS.canvas.el
-    }
-    if(pJS.interactivity.events.onhover.enable || pJS.interactivity.events.onclick.enable){
-      pJS.interactivity.el.addEventListener('mousemove',(e)=>{
-        if(pJS.interactivity.el == window){
-          var pos_x = e.clientX,
-              pos_y = e.clientY
-        }
-        else{
-          var pos_x = e.offsetX || e.clientX,
-              pos_y = e.offsetY || e.clientY
-        }
-        pJS.interactivity.mouse.pos_x = pos_x
-        pJS.interactivity.mouse.pos_y = pos_y
-        if(pJS.tmp.retina){
-          pJS.interactivity.mouse.pos_x *= pJS.canvas.pxratio
-          pJS.interactivity.mouse.pos_y *= pJS.canvas.pxratio
-        }
-        pJS.interactivity.status = 'mousemove'
-      })
-      pJS.interactivity.el.addEventListener('mouseleave',(e)=>{
-        pJS.interactivity.mouse.pos_x = null
-        pJS.interactivity.mouse.pos_y = null
-        pJS.interactivity.status = 'mouseleave'
-      })
-    }
-    if(pJS.interactivity.events.onclick.enable){
-      pJS.interactivity.el.addEventListener('click',()=>{
-        pJS.interactivity.mouse.click_pos_x = pJS.interactivity.mouse.pos_x
-        pJS.interactivity.mouse.click_pos_y = pJS.interactivity.mouse.pos_y
-        pJS.interactivity.mouse.click_time = new Date().getTime()
-        if(pJS.interactivity.events.onclick.enable){
-          pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb, pJS.interactivity.mouse)
-        }
-      })
-    }
+    pJS.interactivity.el = window
+    pJS.interactivity.el.addEventListener('mousemove',(e)=>{
+      var pos_x = e.clientX,
+          pos_y = e.clientY
+      pJS.interactivity.mouse.pos_x = pos_x
+      pJS.interactivity.mouse.pos_y = pos_y
+      if(pJS.tmp.retina){
+        pJS.interactivity.mouse.pos_x *= pJS.canvas.pxratio
+        pJS.interactivity.mouse.pos_y *= pJS.canvas.pxratio
+      }
+      pJS.interactivity.status = 'mousemove'
+    })
+    pJS.interactivity.el.addEventListener('mouseleave',(e)=>{
+      pJS.interactivity.mouse.pos_x = null
+      pJS.interactivity.mouse.pos_y = null
+      pJS.interactivity.status = 'mouseleave'
+    })
+    pJS.interactivity.el.addEventListener('click',()=>{
+      pJS.interactivity.mouse.click_pos_x = pJS.interactivity.mouse.pos_x
+      pJS.interactivity.mouse.click_pos_y = pJS.interactivity.mouse.pos_y
+      pJS.interactivity.mouse.click_time = new Date().getTime()
+      pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb, pJS.interactivity.mouse)
+    })
   }
   pJS.fn.vendors.densityAutoParticles=()=>{
     if(pJS.particles.number.density.enable){
@@ -493,8 +431,8 @@ var pJS = function(tag_id){
     for(var i=0; i<pJS.particles.array.length; i++){
       var p2 = pJS.particles.array[i]
       var dx = p1.x - p2.x,
-          dy = p1.y - p2.y,
-          dist = Math.sqrt(dx*dx + dy*dy)
+        dy = p1.y - p2.y,
+        dist = Math.sqrt(dx*dx + dy*dy)
       if(dist <= p1.radius + p2.radius){
         p1.x = position ? position.x : Math.random() * pJS.canvas.w
         p1.y = position ? position.y : Math.random() * pJS.canvas.h
@@ -587,8 +525,8 @@ function isInArray(value, array) {
 window.pJSDom = []
 window.particlesJS=(tag_id)=>{
   var pJS_tag = document.getElementById(tag_id),
-      pJS_canvas_class = 'particles-js-canvas-el',
-      exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class)
+  pJS_canvas_class = 'particles-js-canvas-el',
+  exist_canvas = pJS_tag.getElementsByClassName(pJS_canvas_class)
   if(exist_canvas.length){
     while(exist_canvas.length > 0){
       pJS_tag.removeChild(exist_canvas[0])
