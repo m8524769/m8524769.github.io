@@ -145,16 +145,16 @@ article {
     }
 }
 
-footer {
-    background-color: #353535cc;
-    opacity: 0.9;
-
+#oops {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.2rem 0;
-
+    justify-content: center;
+    text-align: center;
+    height: 78vh;
     span {
+        margin: 0.2rem 0;
         a {
             color: #ae81ff;
             text-decoration: underline;
