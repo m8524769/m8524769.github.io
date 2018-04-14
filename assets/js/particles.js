@@ -38,18 +38,11 @@ var pJS = function(tag_id){
           enable: true,
           speed: 0.4,
           opacity_min: 0.1,
-          sync: false
         }
       },
       size: {
-        value: 3,
+        value: 2,
         random: true,
-        anim: {
-          enable: false,
-          speed: 40,
-          size_min: 0.1,
-          sync: false
-        }
       },
       line_linked: {
         enable: true,
@@ -60,7 +53,7 @@ var pJS = function(tag_id){
       },
       move: {
         enable: true,
-        speed: 4,
+        speed: 5,
         direction: 'none',
         random: true,
         straight: false,
@@ -262,7 +255,7 @@ var pJS = function(tag_id){
     }
   }
   pJS.fn.particlesUpdate=()=>{
-    for(var i = 0; i < pJS.particles.array.length; i++){
+    for(var i=0; i<pJS.particles.array.length; i++){
       var p = pJS.particles.array[i]
       var ms = pJS.particles.move.speed/2
       p.x += p.vx * ms
@@ -330,8 +323,8 @@ var pJS = function(tag_id){
   }
   pJS.fn.interact.linkParticles=(p1, p2)=>{
     var dx = p1.x-p2.x,
-        dy = p1.y-p2.y,
-        dist = Math.sqrt(dx*dx + dy*dy)
+      dy = p1.y-p2.y,
+      dist = Math.sqrt(dx*dx + dy*dy)
     if(dist <= pJS.particles.line_linked.distance){
       var opacity_line = pJS.particles.line_linked.opacity - (dist / (1/pJS.particles.line_linked.opacity)) / pJS.particles.line_linked.distance
       if(opacity_line > 0){
@@ -448,8 +441,8 @@ var pJS = function(tag_id){
   pJS.fn.vendors.drawShape=(c, startX, startY, sideLength, sideCountNumerator, sideCountDenominator)=>{
     var sideCount = sideCountNumerator * sideCountDenominator
     var decimalSides = sideCountNumerator / sideCountDenominator
-    var interiorAngleDegrees = (180 * (decimalSides - 2)) / decimalSides
-    var interiorAngle = Math.PI - Math.PI * interiorAngleDegrees / 180 // convert to radians
+    var interiorAngleDegrees = (180 * (decimalSides-2)) / decimalSides
+    var interiorAngle = Math.PI - Math.PI * interiorAngleDegrees / 180
     c.save()
     c.beginPath()
     c.translate(startX, startY)
