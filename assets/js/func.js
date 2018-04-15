@@ -55,4 +55,6 @@ window.init = () => {
     localStorage['visited'] = true
 }
 
-window.init()
+if (screen.width > 480) {
+    window.init()
+}
