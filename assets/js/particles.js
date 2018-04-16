@@ -25,7 +25,7 @@ var pJS = function(tag_id){
         value: '#fff'
       },
       shape: {
-        type: 'edge',
+        type: 'egde',
         stroke: {
           width: 0,
           color: '#000000'
@@ -58,7 +58,6 @@ var pJS = function(tag_id){
         random: true,
         straight: false,
         out_mode: 'out',
-        bounce: false,
         attract: {
           enable: false,
           rotateX: 3000,
@@ -160,35 +159,8 @@ var pJS = function(tag_id){
     else if(this.x < this.radius*2) this.x = this.x + this.radius
     if(this.y > pJS.canvas.h - this.radius*2) this.y = this.y - this.radius
     else if(this.y < this.radius*2) this.y = this.y + this.radius
-    if(pJS.particles.move.bounce){
-      pJS.fn.vendors.checkOverlap(this, position)
-    }
-    this.color = {}
-    if(typeof(color.value) == 'object'){
-      if(color.value instanceof Array){
-        var color_selected = color.value[Math.floor(Math.random() * pJS.particles.color.value.length)]
-        this.color.rgb = hexToRgb(color_selected)
-      }else{
-        if(color.value.r != undefined && color.value.g != undefined && color.value.b != undefined){
-          this.color.rgb = {
-            r: color.value.r,
-            g: color.value.g,
-            b: color.value.b
-          }
-        }
-        if(color.value.h != undefined && color.value.s != undefined && color.value.l != undefined){
-          this.color.hsl = {
-            h: color.value.h,
-            s: color.value.s,
-            l: color.value.l
-          }
-        }
-      }
-    }
-    else if(typeof(color.value) == 'string'){
-      this.color = color
-      this.color.rgb = hexToRgb(this.color.value)
-    }
+    this.color = color
+    this.color.rgb = hexToRgb(this.color.value)
     this.opacity = Math.random() * pJS.particles.opacity.value
     if(pJS.particles.opacity.anim.enable){
       this.opacity_status = false
@@ -209,43 +181,16 @@ var pJS = function(tag_id){
     }
     this.vx_i = this.vx
     this.vy_i = this.vy
-    var shape_type = pJS.particles.shape.type
-    if(typeof(shape_type) == 'object'){
-      if(shape_type instanceof Array){
-        var shape_selected = shape_type[Math.floor(Math.random() * shape_type.length)]
-        this.shape = shape_selected
-      }
-    }else{
-      this.shape = shape_type
-    }
+    this.shape = pJS.particles.shape.type
   }
   pJS.fn.particle.prototype.draw = function() {
     var p = this
-    if(p.radius_bubble != undefined){
-      var radius = p.radius_bubble
-    }else{
-      var radius = p.radius
-    }
-    if(p.opacity_bubble != undefined){
-      var opacity = p.opacity_bubble
-    }else{
-      var opacity = p.opacity
-    }
-    if(p.color.rgb){
-      var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+opacity+')'
-    }else{
-      var color_value = 'hsla('+p.color.hsl.h+','+p.color.hsl.s+'%,'+p.color.hsl.l+'%,'+opacity+')'
-    }
+    var radius = p.radius
+    var opacity = p.opacity
+    var color_value = 'rgba('+p.color.rgb.r+','+p.color.rgb.g+','+p.color.rgb.b+','+opacity+')'
     pJS.canvas.ctx.fillStyle = color_value
     pJS.canvas.ctx.beginPath()
-    switch(p.shape){
-      case 'edge':
-        pJS.canvas.ctx.rect(p.x-radius, p.y-radius, radius*2, radius*2)
-      break
-      case 'triangle':
-        pJS.fn.vendors.drawShape(pJS.canvas.ctx, p.x-radius, p.y+radius / 1.66, radius*2, 3, 2)
-      break
-    }
+    pJS.canvas.ctx.rect(p.x-radius, p.y-radius, radius*2, radius*2)
     pJS.canvas.ctx.closePath()
     pJS.canvas.ctx.fill()
   }
@@ -260,16 +205,14 @@ var pJS = function(tag_id){
       var ms = pJS.particles.move.speed/2
       p.x += p.vx * ms
       p.y += p.vy * ms
-      if(pJS.particles.opacity.anim.enable) {
-        if(p.opacity_status == true) {
-          if(p.opacity >= pJS.particles.opacity.value) p.opacity_status = false
-          p.opacity += p.vo
-        }else {
-          if(p.opacity <= pJS.particles.opacity.anim.opacity_min) p.opacity_status = true
-          p.opacity -= p.vo
-        }
-        if(p.opacity < 0) p.opacity = 0
+      if(p.opacity_status == true) {
+        if(p.opacity >= pJS.particles.opacity.value) p.opacity_status = false
+        p.opacity += p.vo
+      }else{
+        if(p.opacity <= pJS.particles.opacity.anim.opacity_min) p.opacity_status = true
+        p.opacity -= p.vo
       }
+      if(p.opacity < 0) p.opacity = 0
       var new_pos = {
         x_left: -p.radius,
         x_right: pJS.canvas.w + p.radius,
@@ -292,14 +235,10 @@ var pJS = function(tag_id){
         p.y = new_pos.y_bottom
         p.x = Math.random() * pJS.canvas.w
       }
-      if(isInArray('grab', pJS.interactivity.events.onhover.mode)){
-        pJS.fn.modes.grabParticle(p)
-      }
-      if(pJS.particles.line_linked.enable || pJS.particles.move.attract.enable){
-        for(var j = i+1; j < pJS.particles.array.length; j++){
-          var p2 = pJS.particles.array[j]
-          pJS.fn.interact.linkParticles(p,p2)
-        }
+      pJS.fn.modes.grabParticle(p)
+      for(var j = i+1; j < pJS.particles.array.length; j++){
+        var p2 = pJS.particles.array[j]
+        pJS.fn.interact.linkParticles(p,p2)
       }
     }
   }
@@ -326,7 +265,7 @@ var pJS = function(tag_id){
       dy = p1.y-p2.y,
       dist = Math.sqrt(dx*dx + dy*dy)
     if(dist <= pJS.particles.line_linked.distance){
-      var opacity_line = pJS.particles.line_linked.opacity - (dist / (1/pJS.particles.line_linked.opacity)) / pJS.particles.line_linked.distance
+      var opacity_line = pJS.particles.line_linked.opacity-(dist/(1/pJS.particles.line_linked.opacity))/pJS.particles.line_linked.distance
       if(opacity_line > 0){
         var color_line = pJS.particles.line_linked.color_rgb_line
         pJS.canvas.ctx.strokeStyle = 'rgba('+color_line.r+','+color_line.g+','+color_line.b+','+opacity_line+')'
@@ -364,7 +303,7 @@ var pJS = function(tag_id){
     pJS.particles.array.splice(0, nb)
   }
   pJS.fn.modes.grabParticle=(p)=>{
-    if(pJS.interactivity.events.onhover.enable && pJS.interactivity.status == 'mousemove'){
+    if(pJS.interactivity.status == 'mousemove'){
       var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
         dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
         dist_mouse = Math.sqrt(dx_mouse*dx_mouse + dy_mouse*dy_mouse)
@@ -457,8 +396,7 @@ var pJS = function(tag_id){
   }
   pJS.fn.vendors.draw=()=>{
     pJS.fn.particlesDraw()
-    if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame)
-    else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw)
+    pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw)
   }
   pJS.fn.vendors.checkBeforeDraw=()=>{
     pJS.fn.vendors.init()
@@ -489,14 +427,6 @@ window.requestAnimFrame=(()=>{
       window.setTimeout(callback, 1000 / 60)
     }
 })()
-window.cancelRequestAnimFrame=(()=>{
-  return window.cancelAnimationFrame         ||
-    window.webkitCancelRequestAnimationFrame ||
-    window.mozCancelRequestAnimationFrame    ||
-    window.oCancelRequestAnimationFrame      ||
-    window.msCancelRequestAnimationFrame     ||
-    clearTimeout
-})()
 function hexToRgb(hex){
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
   hex = hex.replace(shorthandRegex,(m, r, g, b)=>{
@@ -511,9 +441,6 @@ function hexToRgb(hex){
 }
 function clamp(number, min, max) {
   return Math.min(Math.max(number, min), max)
-}
-function isInArray(value, array) {
-  return array.indexOf(value) > -1
 }
 window.pJSDom = []
 window.particlesJS=(tag_id)=>{
@@ -534,4 +461,6 @@ window.particlesJS=(tag_id)=>{
     pJSDom.push(new pJS(tag_id))
   }
 }
-window.particlesJS('particles-js')
+if (screen.width > 480) {
+  window.particlesJS('particles-js')
+}
