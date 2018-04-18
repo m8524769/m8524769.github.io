@@ -55,7 +55,7 @@ header {
     height: 5rem;
     background-color: #353535dd;
     color: #eeeeee;
-    opacity: 0.95;
+    opacity: 0.98;
 
     display: flex;
     align-items: center; // 垂直居中
@@ -132,8 +132,8 @@ article {
     opacity: 0.98;
     max-width: 48rem;
     margin: 1.2% auto;
-    padding: 0.8% 1%;
-    h1, h2, h3, time, p{
+    padding: 0.4% 0.8%;
+    h1, h2, h3, time, p {
         padding: 0 2.5rem;
     }
     ul {
