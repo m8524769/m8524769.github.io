@@ -24,7 +24,7 @@ const randomBackground = () => {
     })
 }
 
-window.init = () => {
+window.DesktopInit = () => {
     randomBackground()
     let inners = [
         "It's my personal blog",
@@ -48,21 +48,21 @@ window.init = () => {
             greeting.style.opacity = 0
         }
     })
-
-    // Register Service Worker
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').then(registration => {
-                console.log('ServiceWorker registration successful: ', registration)
-            }).catch(err => {
-                console.log('ServiceWorker registration failed: ', err)
-            })
-        })
-    }
-
-    localStorage['visited'] = true
 }
 
 if (screen.width > 480) {
-    window.init()
+    window.DesktopInit()
 }
+
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker registration successful: ', registration)
+        }).catch(err => {
+            console.log('ServiceWorker registration failed: ', err)
+        })
+    })
+}
+
+localStorage['visited'] = true
