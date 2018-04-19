@@ -1,23 +1,20 @@
 {
-    "dir": "ltr",
-    "lang": "en",
     "name": "yk's Blog",
     "short_name": "yk's Blog",
+    "description": "DO WHAT YOU CAN'T",
     "scope": "/",
-    "display": "standalone",
+    "launch_path": "/index.html",
+    "start_url": "/index.html",
     "theme_color": "#353535",
     "background_color": "#353535",
-    "start_url": "/",
-    "launch_path": "/index.html",
-    "description": "Do what you can't",
     "orientation": "any",
-    "related_applications": [],
-    "prefer_related_applications": false,
+    "display": "standalone",
+    "lang": "en",
+    "default_locale": "en",
     "developer": {
         "name": "yk",
-        "url": "https://m8524769.github.io"
+        "url": "https://github.com/m8524769"
     },
-    "default_locale": "en",
     "icons": [{
         "src": "/assets/images/logo/android-chrome-512x512.png",
         "sizes": "512x512",
