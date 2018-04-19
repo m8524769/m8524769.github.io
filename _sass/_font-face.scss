@@ -6,6 +6,7 @@ $full-width: "HYQiHei", "PingFang SC", "Microsoft YaHei UI", "Hiragino Sans GB";
 
 @font-face {
     font-family: 'Fira Code';
+    font-display: fallback;
     src: url('/assets/fonts/FiraCode-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
