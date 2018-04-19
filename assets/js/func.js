@@ -13,11 +13,7 @@ const randomBackground = () => {
                 caches.open('bg-next').then(cache => {
                     cache.put(imageURL, response)
                 })
-            } else {
-                console.log('Response was not ok.')
             }
-        }).catch(error => {
-            console.log(error.message)
         })
     })
 
@@ -35,21 +31,21 @@ window.init = () => {
         "Anyway..",
         "Have a good time!!",
     ]
-    let description = document.getElementById("description")
-    description.style.transition = "color 1s"
+    let greeting = document.getElementById("greeting")
+    greeting.style.transition = "color 1s"
     let i = 0
-    description.addEventListener("click", () => {
+    greeting.addEventListener("click", () => {
         if (i < inners.length) {
-            description.innerHTML = inners[i++]
+            greeting.innerHTML = inners[i++]
         }
         if (i == inners.length) {
             let bg = document.getElementById("bg")
             bg.style.animation = "fadein 4s"
             bg.style.opacity = 1
             document.getElementById("article").classList.add('light')
-            description.style.color = "#eeeeee"
-            description.style.transition = "opacity 1.5s"
-            description.style.opacity = 0
+            greeting.style.color = "#eeeeee"
+            greeting.style.transition = "opacity 1.5s"
+            greeting.style.opacity = 0
         }
     })
 
@@ -57,9 +53,9 @@ window.init = () => {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js').then(registration => {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                console.log('ServiceWorker registration successful: ', registration)
             }).catch(err => {
-                console.log('ServiceWorker registration failed: ', err);
+                console.log('ServiceWorker registration failed: ', err)
             })
         })
     }

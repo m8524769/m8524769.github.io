@@ -14,7 +14,7 @@
 html { font-size: 100%; }
 
 @media only screen and (max-width: 1000px) {
-    #description { font-size: 0; }
+    #greeting { font-size: 0; }
 }
 @media only screen and (max-width: 480px) {
     html { font-size: 75%; }
@@ -68,7 +68,7 @@ header {
         margin: 3%;
         padding-bottom: 0.2rem;
     }
-    #description {
+    #greeting {
         color: #35353500;
         font-family: 'Fira Sans Condensed', sans-serif;
         font-weight: 400;
