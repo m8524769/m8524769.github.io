@@ -136,12 +136,21 @@ article {
     h1, h2, h3, time, p {
         padding: 0 2.5rem;
     }
+    blockquote {
+        font-style: italic;
+        background-color: #252525dd;
+        color: #eeeeee;
+        border-left: 2px solid #66d9ef;
+    }
     ul {
         padding: 0 4rem;
     }
     a {
         color: #ae81ff;
         text-decoration: underline;
+    }
+    hr {
+        border: 1px solid #252525aa;
     }
 }
 

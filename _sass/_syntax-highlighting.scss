@@ -11,12 +11,6 @@ code.highlighter-rouge {
     border-radius: 4px;
 }
 
-blockquote {
-    background-color: #252525dd;
-    color: #eeeeee;
-    border-left: 2px solid #66d9ef;
-}
-
 figure.highlight {
     position: relative;
     overflow-x: auto;
@@ -35,7 +29,7 @@ figure.highlight {
     background-color: #eeeeeebb;
     color: #252525dd;
     transition: 1s;
-    p > code {
+    li > code, p > code, a > code {
         background-color: #eeeeee88;
         color: #252525cc;
         border: 1px solid #ffffff;
