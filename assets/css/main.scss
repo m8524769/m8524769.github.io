@@ -132,9 +132,9 @@ article {
     opacity: 0.98;
     max-width: 48rem;
     margin: 1.2% auto;
-    padding: 0.4% 0.8%;
+    padding: 0.1% 0;
     h1, h2, h3, time, p {
-        padding: 0 2.5rem;
+        padding: 0 3rem;
     }
     blockquote {
         font-style: italic;
@@ -144,7 +144,7 @@ article {
         margin: 0;
     }
     ul {
-        padding: 0 2rem 0 4rem;
+        padding: 0 2rem 0 4.5rem;
     }
     a {
         color: #ae81ff;
