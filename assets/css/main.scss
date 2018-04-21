@@ -46,7 +46,7 @@ a {
     outline: none;
     text-decoration: none;
     transition: opacity 0.2s;
-    &:hover {
+    &:hover, &:focus-within {
         opacity: 0.75;
     }
 }
@@ -115,9 +115,9 @@ header {
             background-color: #353535;
             margin: 0.4rem 1rem;
             padding: 0.1rem 2rem;
-            transition: opacity 0.2s;
-            &:hover {
-                opacity: 0.75;
+            transition: 0.2s;
+            &:hover, &:focus-within {
+                background-color: #35353588;
             }
             a {
                 color: inherit; // #FFFFFF
