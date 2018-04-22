@@ -76,7 +76,7 @@ const vimLike = () => {
 }
 
 const lightUp = () => {
-  let bg = document.getElementById("bg")
+  let bg = document.getElementById('bg')
   bg.style.animation = "fadein 4s"
   bg.style.opacity = 1
   let article = document.getElementById('article')
@@ -94,15 +94,15 @@ window.desktopInit = () => {
   let inners = [
     "It's my personal blog",
     "Anyway..",
-    "Have a good time!!",
+    "Have a good time!!"
   ]
-  let greeting = document.getElementById("greeting")
+  let greeting = document.getElementById('greeting')
   greeting.style.transition = "color 1s"
   let i = 0
   if (sessionStorage.getItem('light')) {
     lightUp()
   } else {
-    greeting.addEventListener("click", () => {
+    greeting.addEventListener('click', () => {
       if (i < inners.length) {
         greeting.innerHTML = inners[i++]
       }
@@ -128,3 +128,17 @@ if ('serviceWorker' in navigator) {
     })
   })
 }
+
+// Tips
+console.log(
+  'If you are a loyal vimer, tell you a good news!\n' +
+  'You can actually use vim-like shortcuts to control this web page.\n\n' +
+  'j  Scroll down / Select below\n' +
+  'k  Scroll up / Select above\n' +
+  'o  Open the selected post\n' +
+  'u  Up to the home URL\n\n' +
+  'And in article pages, you can also:\n\n' +
+  'J  Scroll down faster\n' +
+  'K  Scroll up faster\n\n' +
+  'Happy Viming :)'
+)
