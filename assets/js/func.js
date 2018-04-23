@@ -55,12 +55,12 @@ const vimLike = () => {
         scrollBy(0, -27)
       } else if (event.key == 'J') {
         scrollBy({
-          top: 240,
+          top: 250,
           behavior: "smooth"
         })
       } else if (event.key == 'K') {
         scrollBy({
-          top: -240,
+          top: -250,
           behavior: "smooth"
         })
       } else if (event.key == 'G') {
@@ -133,12 +133,10 @@ if ('serviceWorker' in navigator) {
 console.log(
   'If you are a loyal vimer, tell you a good news!\n' +
   'You can actually use vim-like shortcuts to control this web page.\n\n' +
-  'j  Scroll down / Select below\n' +
-  'k  Scroll up / Select above\n' +
-  'o  Open the selected post\n' +
-  'u  Up to the home URL\n\n' +
-  'And in article pages, you can also:\n\n' +
-  'J  Scroll down faster\n' +
-  'K  Scroll up faster\n\n' +
-  'Happy Viming :)'
+  'j - Scroll down / Select below\n' +
+  'k - Scroll up / Select above\n' +
+  'o - Open the selected post\n' +
+  'u - Up to the home URL\n\n' +
+  'And in article pages, you can also press J/K to scroll faster.\n' +
+  'Happy a good day! :)'
 )
