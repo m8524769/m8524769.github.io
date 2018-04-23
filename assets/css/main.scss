@@ -155,6 +155,24 @@ article {
     }
 }
 
+.anchorjs-link {
+    position: absolute;
+    margin-left: -2rem;
+    padding-top: 0.3rem;
+    padding-right: 0.5rem;
+    font-family: anchorjs-icons;
+    font-size: 1em;
+    font-weight: normal;
+    opacity: 0;
+    text-decoration: none;
+    *:hover > &, &:focus {
+        opacity: 1;
+    }
+    &::after {
+        content: attr(data-anchorjs-icon);
+    }
+}
+
 #oops {
     position: relative;
     display: flex;
