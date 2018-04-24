@@ -13,6 +13,11 @@ github_url  : "https://github.com/m8524769"
 
 plugins:
   - jekyll-octicons
+  - jekyll-paginate
+
+# Pagination
+paginate: 4
+paginate_path: "/page:num"
 
 # Conversion
 markdown: kramdown

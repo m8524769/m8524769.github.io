@@ -72,7 +72,7 @@ header {
         color: #35353500;
         font-family: 'Fira Sans Condensed', sans-serif;
         font-weight: 400;
-        padding-right: 5.3rem;
+        padding-right: 6rem;
         padding-bottom: 0.2rem;
         &:hover {
             color: #eeeeee;
@@ -93,10 +93,10 @@ header {
 
 #container {
     // background-color: #8a8a8ac4;
-    animation: fadein 1s;
     background-color: #00000000;
+    animation: fadein 1s;
     opacity: 0.95;
-    margin: 2rem auto;
+    margin: 1.2rem auto;
     min-width: 16rem;
 
     display: flex;
@@ -121,6 +121,42 @@ header {
             }
             a {
                 color: inherit; // #FFFFFF
+            }
+        }
+
+        nav {
+            background-color: #00000000;
+            margin: 0.4rem 1rem;
+
+            display: inherit; // flex
+            justify-content: center; // MORE 水平居中
+            align-items: center; // 垂直居中
+
+            a {
+                background-color: #353535;
+                width: 100%;
+                padding-top: 0.4rem; // Arrow 垂直居中
+                color: #ffffff00;
+                fill: currentColor;
+                transition: 0.2s;
+                &:hover, &:focus-within {
+                    background-color: #35353588;
+                    color: #ffffff;
+                }
+            }
+            #previous {
+                text-align: left;
+                padding-left: 0.8rem;
+            }
+            #next {
+                text-align: right;
+                padding-right: 0.8rem;
+            }
+            &::after {
+                position: absolute;
+                padding-right: 0.4rem; // 水平微调
+                content: 'MORE';
+                letter-spacing: 0.3rem;
             }
         }
     }
