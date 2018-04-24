@@ -26,16 +26,17 @@ const randomBackground = () => {
 
 const vimLike = () => {
   let home = document.getElementById('logo')
-  if (window.location.pathname == '/') { // In post list
-    let sections = document.getElementsByName('focusable')
+  let postlist = document.getElementById('postlist')
+  let sections = document.getElementsByName('section')
+  let article = document.getElementById('article')
+
+  if (postlist) { // In post list
     let i = -1
     window.addEventListener('keypress', event => {
       if (event.key == 'j' && i < sections.length - 1) {
         sections[++i].focus()
       } else if (event.key == 'k') {
-        if (i == -1 || i == 0) {
-          i = 1
-        }
+        i = (i == 0 || i == -1) ? 1 : i
         sections[--i].focus()
       } else if (event.key == 'G') {
         i = sections.length - 1
@@ -46,8 +47,26 @@ const vimLike = () => {
         home.click()
       }
     })
-  } else { // In article
-    let article = document.getElementById('article')
+
+    let previous = document.getElementById('previous')
+    let next = document.getElementById('next')
+    window.addEventListener('keydown', event => {
+      if (event.key == 'h' && previous) {
+        previous.focus()
+      }
+      if (event.key == 'l' && next) {
+        next.focus()
+      }
+    })
+    window.addEventListener('keyup', event => {
+      if (event.key == 'h' && previous) {
+        previous.click()
+      }
+      if (event.key == 'l' && next) {
+        next.click()
+      }
+    })
+  } else { // In article page
     window.addEventListener('keypress', event => {
       if (event.key == 'j') {
         scrollBy(0, 27)
@@ -135,8 +154,14 @@ console.log(
   'You can actually use vim-like shortcuts to control this web page.\n\n' +
   'j - Scroll down / Select below\n' +
   'k - Scroll up / Select above\n' +
+  'h - Previous page\n' +
+  'l - Next page\n' +
   'o - Open the selected post\n' +
   'u - Up to the home URL\n\n' +
   'And in article pages, you can also press J/K to scroll faster.\n' +
-  'Happy a good day! :)'
+  'More shortcuts and features are comming soon!\n' +
+  'If you have a better idea about this blog,\n' +
+  'just tell me on https://github.com/m8524769/m8524769.github.io/issues.\n' +
+  'I would really appreciate it!\n' +
+  'Have a good day! :)'
 )
