@@ -15,6 +15,10 @@
         "name": "yk",
         "url": "https://github.com/m8524769"
     },
+    "related_applications": [{
+        "platform": "play",
+        "id": "com.google.samples.apps.iosched"
+    }],
     "icons": [{
         "src": "/assets/images/logo/android-chrome-512x512.png",
         "sizes": "512x512",
