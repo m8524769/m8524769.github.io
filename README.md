@@ -1,7 +1,9 @@
-# m8524769.github.io
+# [yk's Blog](https://m8524769.github.io/)
 
-> My Personal Github Page
+_Personal Blog, powered by Jekyll and Github Pages_
+
+> Version:1.0 Alpha
 >
-> _Version:1.0 Alpha_
-
-## [Link](https://m8524769.github.io/)
+> 测试环境:<br>
+> Chrome 65<br>
+> Firefox Nightly 61
