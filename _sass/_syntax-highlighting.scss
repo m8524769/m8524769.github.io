@@ -3,11 +3,11 @@
    ========================================================================== */
 
 code.highlighter-rouge {
-    background-color: #252525;
+    background-color: #252525dd;
     color: #66d9ef;
     font-family: "Fira Code", monospace;
     font-size: 1.2rem;
-    border: 2px solid #252525;
+    border: 2px solid #00000000;
     border-radius: 4px;
 }
 
@@ -16,10 +16,10 @@ figure.highlight {
     overflow-x: auto;
     margin: 1rem 3rem;
     padding: 0 1.1rem;
-    pre code {
+    pre > code {
         font-family: "Fira Code", $full-width, monospace;
     }
-    font-size: 1.1rem;
+    font-size: 1.18rem;
     line-height: 1.4;
     border: 1px solid #eeeeee;
     border-radius: 4px;
@@ -30,19 +30,19 @@ figure.highlight {
     background-color: #eeeeeebb;
     color: #252525dd;
     transition: 1s;
-    li > code, p > code, a > code {
+    code.highlighter-rouge {
         background-color: #eeeeee88;
         color: #252525cc;
         border: 1px solid #ffffff;
         border-radius: 0;
     }
-    pre > code {
+    figure.highlight {
         color: #ffffff;
     }
     blockquote {
         background-color: #eeeeee88;
         color: #252525cc;
-        border-left: 4px solid #35353588;
+        border-left: 3px solid #35353588;
     }
 }
 
