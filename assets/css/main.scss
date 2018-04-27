@@ -11,7 +11,7 @@
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans+Condensed);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-html { font-size: 100%; }
+html { font-size: 16px; }
 
 @media only screen and (max-width: 1000px) {
     #greeting { font-size: 0; }
@@ -96,7 +96,6 @@ header {
 
 #container {
     // background-color: #8a8a8ac4;
-    background-color: #00000000;
     animation: fadein 1s;
     opacity: 0.95;
     margin: 1.2rem auto;
@@ -107,7 +106,6 @@ header {
 
     #postlist {
         // background-color: #b9b9b9c4;
-        background-color: #00000000;
         width: 48rem;
         min-width: 14rem;
 
@@ -123,7 +121,7 @@ header {
                 background-color: #35353588;
                 code.highlighter-rouge {
                     background-color: #25252544;
-                    border: 2px solid #00000000;
+                    border: 2px solid transparent;
                 }
             }
             a {
@@ -132,7 +130,6 @@ header {
         }
 
         nav {
-            background-color: #00000000;
             margin: 0.4rem 1rem;
 
             display: inherit; // flex
@@ -181,7 +178,7 @@ article {
     a {
         color: #ae81ff;
         &:hover {
-            text-decoration: underline;
+            border-bottom: 2px solid #ae81ffdd;
         }
     }
     blockquote {
@@ -202,15 +199,14 @@ article {
 .anchorjs-link {
     position: absolute;
     margin-left: -2rem;
-    padding-top: 0.3rem;
-    padding-right: 0.5rem;
+    padding-top: 0.4rem;
     font-family: anchorjs-icons;
     font-size: 1em;
     font-weight: normal;
     opacity: 0;
     *:hover > &, &:focus {
         opacity: 1;
-        text-decoration: none;
+        border-bottom: none;
     }
     &::after {
         content: attr(data-anchorjs-icon);
