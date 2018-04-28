@@ -1,19 +1,22 @@
+/**
+ * sw.js
+ */
+
 let CACHE_NAME = 'yk-blog'
 
-self.addEventListener('install', event => {
+self.oninstall = event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll([
-        '/',
-        '/assets/css/main.css',
-        '/assets/js/func.js',
-        '/assets/js/particles.js'
-      ])
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll([
+      '/',
+      '/assets/css/main.css',
+      '/assets/js/func.js',
+      '/assets/js/particles.js',
+      '/assets/js/anchor.js'
+    ]))
   )
-})
+}
 
-self.addEventListener('fetch', event => {
+self.onfetch = event => {
   event.respondWith(
     caches.match(event.request).then(response => {
       if (response && response.type == 'basic') {
@@ -31,20 +34,18 @@ self.addEventListener('fetch', event => {
       })
     })
   )
-})
+}
 
-self.addEventListener('activate', event => {
+self.onactivate = event => {
   return event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
-        keys.map(k => {
-          if (k == CACHE_NAME) {
-            return caches.delete(k)
-          } else {
-            return Promise.resolve()
-          }
-        })
-      )
-    })
+    caches.keys().then(keys => Promise.all(
+      keys.map(key => {
+        if (key == CACHE_NAME) {
+          return caches.delete(key)
+        } else {
+          return Promise.resolve()
+        }
+      })
+    ))
   )
-})
+}
