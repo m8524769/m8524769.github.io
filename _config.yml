@@ -16,7 +16,7 @@ plugins:
   - jekyll-paginate
 
 # Pagination
-paginate: 4
+paginate: 3
 paginate_path: "/page:num"
 
 # Conversion
