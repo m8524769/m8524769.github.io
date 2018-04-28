@@ -94,6 +94,19 @@ const vimLike = () => {
   }
 }
 
+const loadComment = () => {
+  _hcwp = window._hcwp || []
+  _hcwp.push({ widget: "Stream", widget_id: 104126 })
+  if ("HC_LOAD_INIT" in window)
+    return;
+  HC_LOAD_INIT = true
+  let hcc = document.createElement("script")
+  hcc.src = "https://w.hypercomments.com/widget/hc/104126/en/widget.js"
+  hcc.async = true
+  let s = document.getElementsByTagName("script")[0]
+  s.parentNode.insertBefore(hcc, s.nextSibling)
+}
+
 const lightUp = () => {
   let bg = document.getElementById('bg')
   bg.style.animation = "fadein 4s"
@@ -107,9 +120,10 @@ const lightUp = () => {
   greeting.style.opacity = 0
 }
 
-window.desktopInit = () => {
+if (screen.width > 480) {
   randomBackground()
   vimLike()
+  loadComment()
   let inners = [
     "It's my personal blog",
     "Anyway..",
@@ -131,10 +145,6 @@ window.desktopInit = () => {
       }
     })
   }
-}
-
-if (screen.width > 480) {
-  window.desktopInit()
 }
 
 // Register Service Worker
