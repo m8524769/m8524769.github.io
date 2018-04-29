@@ -18,6 +18,7 @@ html { font-size: 16px; }
 }
 @media only screen and (max-width: 480px) {
     html { font-size: 72%; }
+    #article { margin: 0.7rem auto }
     .octicon-mark-github { height: 3.6rem; }
 }
 
@@ -170,7 +171,7 @@ article {
     background-color: #353535;
     opacity: 0.98;
     max-width: 48rem;
-    margin: 1rem auto;
+    margin: 1.3rem auto;
     padding: 0.1% 0;
     h1, h2, h3, time, p {
         padding: 0 3rem;
