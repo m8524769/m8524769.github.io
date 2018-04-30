@@ -51,9 +51,9 @@ a {
 
 header {
     height: 5rem;
-    background-color: #353535dd;
+    background-color: #353535;
     color: #eeeeee;
-    opacity: 0.98;
+    opacity: 0.95;
 
     display: flex;
     align-items: center; // 垂直居中
@@ -99,7 +99,7 @@ header {
     // background-color: #8a8a8ac4;
     animation: fadein 1s;
     opacity: 0.95;
-    margin: 1.2rem auto;
+    margin: 1rem auto;
     min-width: 16rem;
 
     display: flex;
@@ -254,7 +254,9 @@ article {
         margin: 0.2rem 0;
         a {
             color: #ae81ff;
-            text-decoration: underline;
+            &:hover {
+                border-bottom: 2px solid #ae81ffdd;
+            }
         }
     }
 }
