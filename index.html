@@ -10,7 +10,11 @@ layout: default
             <section>
                 <a name="section" href="{{ post.url | prepend:site.baseurl }}">
                     <h1>{{ post.title }}</h1>
-                    <p>{{ post.excerpt | truncatewords:20 }}</p>
+                    {% if post.extend_excerpt %}
+                        <p>{{ post.excerpt | truncatewords:20 }}</p>
+                    {% else %}
+                        <p>{{ post.excerpt | truncate:85 }}</p>
+                    {% endif %}
                 </a>
             </section>
         {% endfor %}
