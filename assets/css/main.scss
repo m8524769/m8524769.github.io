@@ -8,9 +8,6 @@
 @import "font-face";
 @import "syntax-highlighting";
 
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans+Condensed);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 html { font-size: 16px; }
 
 @media only screen and (max-width: 1000px) {
@@ -34,13 +31,13 @@ body {
 
 #bg {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     opacity: 0;
 }
 
 #particles-js {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
 }
 
 a {
@@ -75,6 +72,7 @@ header {
         font-weight: 400;
         padding-right: 6rem;
         padding-bottom: 0.2rem;
+        cursor: pointer;
         &:hover {
             color: #eeeeee;
         }
@@ -95,7 +93,7 @@ header {
     to { opacity: 1; }
 }
 
-#container {
+main {
     // background-color: #8a8a8ac4;
     animation: fadein 1s;
     opacity: 0.95;
@@ -196,22 +194,6 @@ article {
         border: 1px solid #252525aa;
     }
 }
-
-// #hypercomments_widget {
-//     position: fixed;
-//     top: 93vh; bottom: 0;
-//     left: 0; right: 0;
-//     max-width: 48rem;
-//     margin: auto;
-//     animation: fadein 1s;
-//     background-color: #eeeeee88;
-//     opacity: 0.98;
-//     transition: 0.5s;
-//     &:hover {
-//         top: 28vh;
-//         background-color: #eeeeeedd;
-//     }
-// }
 
 #hypercomments_widget {
     animation: fadein 1s;
