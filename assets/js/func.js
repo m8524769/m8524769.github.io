@@ -123,7 +123,7 @@ const lightUp = () => {
 if (screen.width > 480) {
   randomBackground()
   vimLike()
-  loadComment()
+  // loadComment()
   let inners = [
     "It's my personal blog",
     "Anyway..",
@@ -160,7 +160,7 @@ if ('serviceWorker' in navigator) {
 
 // Tips
 console.log(
-  'If you are a loyal vimer, tell you a good news!\n' +
+  'You know what? If you are a vimer.\n' +
   'You can actually use vim-like shortcuts to control this web page.\n\n' +
   'j - Scroll down / Select below\n' +
   'k - Scroll up / Select above\n' +

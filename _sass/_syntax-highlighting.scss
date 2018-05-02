@@ -44,6 +44,12 @@ figure.highlight {
         color: #252525cc;
         border-left: 3px solid #35353588;
     }
+    a {
+        color: #ae81ff;
+        &:hover {
+            border-bottom: 2px solid #ae81ffdd;
+        }
+    }
 }
 
 .highlight {
