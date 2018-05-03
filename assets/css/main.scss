@@ -43,15 +43,17 @@ body {
 a {
     outline: none;
     text-decoration: none;
-    transition: 0.2s;
+    color: #ffffff;
+    transition: opacity 0.2s;
 }
 
 header {
     height: 5rem;
     background-color: #353535;
+    font-family: 'Fira Sans Condensed', sans-serif;
     color: #eeeeee;
     opacity: 0.95;
-    transition: 0.2s;
+    transition: background-color 0.2s;
     &:hover {
         background-color: #35353588;
     }
@@ -62,7 +64,6 @@ header {
 
     #logo {
         color: inherit; // #EEEEEE
-        font-family: 'Fira Sans Condensed', sans-serif;
         font-size: 2rem;
         margin: 3%;
         padding-bottom: 0.2rem;
@@ -72,7 +73,6 @@ header {
     }
     #greeting {
         color: #35353500;
-        font-family: 'Fira Sans Condensed', sans-serif;
         font-weight: 400;
         padding-right: 6rem;
         padding-bottom: 0.2rem;
@@ -118,8 +118,8 @@ main {
         section {
             background-color: #353535;
             margin: 0.4rem 1rem;
-            padding: 0.4rem 2rem;
-            transition: 0.2s;
+            padding: 0.4rem 2.1rem;
+            transition: background-color 0.2s;
             &:hover, &:focus-within {
                 background-color: #35353588;
                 code.highlighter-rouge {

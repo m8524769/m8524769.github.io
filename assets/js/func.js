@@ -120,58 +120,61 @@ const lightUp = () => {
   greeting.style.opacity = 0
 }
 
-if (screen.width > 480) {
-  randomBackground()
-  vimLike()
-  // loadComment()
-  let inners = [
-    "It's my personal blog",
-    "Anyway..",
-    "Have a good time!!"
-  ]
-  let greeting = document.getElementById('greeting')
-  greeting.style.transition = "color 1s"
-  let i = 0
-  if (sessionStorage.getItem('light')) {
-    lightUp()
-  } else {
-    greeting.addEventListener('click', () => {
-      if (i < inners.length) {
-        greeting.innerHTML = inners[i++]
-      }
-      if (i == inners.length) {
-        lightUp()
-        sessionStorage.setItem('light', true)
-      }
+window.onload = () => {
+  if (screen.width > 480) {
+    randomBackground()
+    // loadComment()
+    let inners = [
+      "It's my personal blog",
+      "Anyway..",
+      "Have a good time!!"
+    ]
+    let greeting = document.getElementById('greeting')
+    greeting.style.transition = "color 1s"
+    let i = 0
+    if (sessionStorage.getItem('light')) {
+      lightUp()
+    } else {
+      greeting.addEventListener('click', () => {
+        if (i < inners.length) {
+          greeting.innerHTML = inners[i++]
+        }
+        if (i == inners.length) {
+          lightUp()
+          sessionStorage.setItem('light', true)
+        }
+      })
+    }
+    particlesJS('particles-js')
+    vimLike()
+  }
+
+  // Register Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').then(registration => {
+        console.log('ServiceWorker registration successful.')
+      }).catch(error => {
+        console.log('ServiceWorker registration failed: ', error)
+      })
     })
   }
-}
 
-// Register Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').then(registration => {
-      console.log('ServiceWorker registration successful.')
-    }).catch(error => {
-      console.log('ServiceWorker registration failed: ', error)
-    })
-  })
+  // Tips
+  console.log(
+    'You know what? If you are a vimer.\n' +
+    'You can actually use vim-like shortcuts to control this web page.\n\n' +
+    'j - Scroll down / Select below\n' +
+    'k - Scroll up / Select above\n' +
+    'h - Previous page\n' +
+    'l - Next page\n' +
+    'o - Open the selected post\n' +
+    'u - Up to the home URL\n\n' +
+    'And in article pages, you can also press J/K to scroll faster.\n' +
+    'More shortcuts and features are comming soon!\n' +
+    'If you have a better idea about this blog,\n' +
+    'just tell me on https://github.com/m8524769/m8524769.github.io/issues.\n' +
+    'I would really appreciate it!\n' +
+    'Have a good day! :)'
+  )
 }
-
-// Tips
-console.log(
-  'You know what? If you are a vimer.\n' +
-  'You can actually use vim-like shortcuts to control this web page.\n\n' +
-  'j - Scroll down / Select below\n' +
-  'k - Scroll up / Select above\n' +
-  'h - Previous page\n' +
-  'l - Next page\n' +
-  'o - Open the selected post\n' +
-  'u - Up to the home URL\n\n' +
-  'And in article pages, you can also press J/K to scroll faster.\n' +
-  'More shortcuts and features are comming soon!\n' +
-  'If you have a better idea about this blog,\n' +
-  'just tell me on https://github.com/m8524769/m8524769.github.io/issues.\n' +
-  'I would really appreciate it!\n' +
-  'Have a good day! :)'
-)

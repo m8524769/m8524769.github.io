@@ -461,6 +461,3 @@ window.particlesJS=(tag_id)=>{
     pJSDom.push(new pJS(tag_id))
   }
 }
-if (screen.width > 480) {
-  window.particlesJS('particles-js')
-}
