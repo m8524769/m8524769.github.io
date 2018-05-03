@@ -51,6 +51,10 @@ header {
     background-color: #353535;
     color: #eeeeee;
     opacity: 0.95;
+    transition: 0.2s;
+    &:hover {
+        background-color: #35353588;
+    }
 
     display: flex;
     align-items: center; // 垂直居中
@@ -114,7 +118,7 @@ main {
         section {
             background-color: #353535;
             margin: 0.4rem 1rem;
-            padding: 0.1rem 2rem;
+            padding: 0.4rem 2rem;
             transition: 0.2s;
             &:hover, &:focus-within {
                 background-color: #35353588;
@@ -125,6 +129,9 @@ main {
             }
             a {
                 color: inherit; // #FFFFFF
+                h2 {
+                    margin: 1.387rem 0;
+                }
             }
         }
 

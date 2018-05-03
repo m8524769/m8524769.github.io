@@ -9,7 +9,7 @@ layout: default
         {% for post in paginator.posts %}
             <section>
                 <a name="section" href="{{ post.url | prepend:site.baseurl }}">
-                    <h1>{{ post.title }}</h1>
+                    <h2>{{ post.title }}</h2>
                     {% if post.extend_excerpt %}
                         <p>{{ post.excerpt | truncatewords:20 }}</p>
                     {% else %}
