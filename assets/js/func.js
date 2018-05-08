@@ -116,7 +116,6 @@ const lightUp = () => {
     article.classList.add('light')
   }
   greeting.style.color = "#eeeeee"
-  greeting.style.transition = "opacity 1.5s"
   greeting.style.opacity = 0
 }
 
@@ -125,9 +124,9 @@ window.onload = () => {
     randomBackground()
     // loadComment()
     let inners = [
-      "It's my personal blog",
-      "Anyway..",
-      "Have a good time!!"
+      "Fantastic to have you here!",
+      "It's my blog and I wish you like it",
+      "Have a good time anyway!!"
     ]
     let greeting = document.getElementById('greeting')
     greeting.style.transition = "color 1s"
@@ -140,6 +139,7 @@ window.onload = () => {
           greeting.innerHTML = inners[i++]
         }
         if (i == inners.length) {
+          greeting.style.transition = "opacity 2s"
           lightUp()
           sessionStorage.setItem('light', true)
         }

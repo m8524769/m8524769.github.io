@@ -151,8 +151,9 @@ main {
                 background-color: #353535;
                 width: 100%;
                 padding-top: 0.4rem; // Arrow 垂直居中
-                color: #ffffff00;
+                color: transparent;
                 fill: currentColor;
+                transition: color 0.2s, background-color 0.2s;
                 &:hover, &:focus-within {
                     background-color: #35353588;
                     color: #ffffff;
