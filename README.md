@@ -17,7 +17,7 @@ _Personal Blog, powered by Jekyll and Github Pages_
 
 ### 第二步：`Fork` Me!!
 
-点击 `Fork` 之后进入 Settings 页面，将 Repository name 改成 `<your username>.github.io`（这就是你的以后博客地址了）
+点击 `Fork` 之后进入 [Settings](../../settings) 页面，将 Repository name 改成 `<your username>.github.io`（这就是你的以后博客地址了）
 
 这时你的博客就已经可以访问了，开不开心？
 
@@ -49,7 +49,7 @@ _Personal Blog, powered by Jekyll and Github Pages_
 
 很高兴你能看到这里，这年头愿意花时间读 `README` 的可不多了。
 
-首先介绍一下，此博客模板是基于 Jekyll 和 Github Pages 建立的，所以要进一步自定义的话就得具备相关知识，建议直接看[文档](https://jekyllrb.com/docs/home/)。
+首先介绍一下，此博客模板是基于 Jekyll 和 Github Pages 的，所以要进一步定制的话就得具备相关知识，建议直接看[文档](https://jekyllrb.com/docs/home/)。
 
 另外，建议熟练掌握 Git 以及 Gem/Bundler 包管理器的使用，前者是是必修课，后者能帮你避开很多坑（其实踩一遍才是最好的）。其中 Gem 和 Bundler 都是管理 Ruby 包的，类似于 npm 和 yarn，用过的会更好上手些，但依旧会有很多依赖上的麻烦。只要足够耐心，这都不是问题。
 
