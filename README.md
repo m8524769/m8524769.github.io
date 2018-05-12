@@ -5,7 +5,7 @@ _Personal Blog, powered by Jekyll and Github Pages_
 ![Screenshot](Screenshot.png)
 
 > Version: 1.0 Beta (Developing...)<br>
-> 测试环境: Chrome 66 & Firefox Nightly 61
+> 测试环境: Chrome 66 & Firefox Nightly 62
 
 ## 如何将该模板应用到自己的博客？？
 
@@ -61,7 +61,7 @@ _Personal Blog, powered by Jekyll and Github Pages_
 
 可能你想问：Github Pages 的博客能不能换域名啊？github.io 敲起来多麻烦。答案是：当然可以，但不怎么推荐。方法很简单，网上有很多教程，这里就不赘述了。为什么说不推荐呢？我们知道，GitHub Pages 是会给 github.io 提供免费 HTTPS 服务的，如果绑定自定义域名的话，就无法通过 HTTPS 来访问博客了，甚至会被浏览器标记为"不安全"，另一方面，Service Worker 的注册也是要 HTTPS 支持的，没有它，网站性能也会大打折扣。其实，你要绑定个域名然后再弄个 SSL 也不是不可以，只要你愿意折腾。
 
-就哔哔这么多了，我要睡觉去了。。
+就逼逼这么多了，我要睡觉去了。。
 
 ***
 
