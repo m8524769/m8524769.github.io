@@ -2,21 +2,19 @@
 layout: default
 ---
 
-<main>
+<main onselectstart="return false">
 
     <div id="postlist">
 
         {% for post in paginator.posts %}
-            <section>
-                <a name="section" href="{{ post.url | prepend:site.baseurl }}">
-                    <h2>{{ post.title }}</h2>
-                    {% if post.extend_excerpt %}
-                        <p>{{ post.excerpt | truncatewords:20 }}</p>
-                    {% else %}
-                        <p>{{ post.excerpt | truncate:85 }}</p>
-                    {% endif %}
-                </a>
-            </section>
+            <a name="section" href="{{ post.url }}">
+                <h2>{{ post.title }}</h2>
+                {% if post.extend_excerpt %}
+                    <p>{{ post.excerpt | strip_html | truncatewords:30 }}</p>
+                {% else %}
+                    <p>{{ post.excerpt | strip_html | truncate:85 }}</p>
+                {% endif %}
+            </a>
         {% endfor %}
 
         {% if paginator.total_pages > 1 %}
