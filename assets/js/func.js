@@ -109,13 +109,11 @@ const loadComment = () => {
 
 const lightUp = () => {
   let bg = document.getElementById('bg')
-  bg.style.animation = "fadein 4s"
-  bg.style.opacity = 1
+  bg.style.animation = "4s fadein forwards"
   let article = document.getElementById('article')
   if (article) {
     article.classList.add('light')
   }
-  greeting.style.color = "#eeeeee"
   greeting.style.opacity = 0
 }
 
@@ -123,23 +121,24 @@ window.onload = () => {
   if (screen.width > 480) {
     randomBackground()
     // loadComment()
-    let inners = [
-      "Fantastic to have you here!",
-      "It's my blog and I wish you like it",
-      "Have a good time anyway!!"
-    ]
     let greeting = document.getElementById('greeting')
     greeting.style.transition = "color 1s"
-    let i = 0
     if (sessionStorage.getItem('light')) {
       lightUp()
     } else {
+      let inners = [
+        "Fantastic to have you here!",
+        "It's my blog and I wish you like it",
+        "Have a good time anyway!!"
+      ]
+      let i = 0
       greeting.addEventListener('click', () => {
         if (i < inners.length) {
           greeting.innerHTML = inners[i++]
         }
         if (i == inners.length) {
           greeting.style.transition = "opacity 2s"
+          greeting.style.color = "#eeeeee"
           lightUp()
           sessionStorage.setItem('light', true)
         }
@@ -151,18 +150,16 @@ window.onload = () => {
 
   // Register Service Worker
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').then(registration => {
-        console.log('ServiceWorker registration successful.')
-      }).catch(error => {
-        console.log('ServiceWorker registration failed: ', error)
-      })
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+      console.log('ServiceWorker registration successful.')
+    }).catch(error => {
+      console.log('ServiceWorker registration failed: ', error)
     })
   }
 
   // Tips
   console.log(
-    'You know what? If you are a vimer.\n' +
+    '<<<<<<<<<< Little Secret >>>>>>>>>>\n' +
     'You can actually use vim-like shortcuts to control this web page.\n\n' +
     'j - Scroll down / Select below\n' +
     'k - Scroll up / Select above\n' +
