@@ -25,7 +25,6 @@ const randomBackground = () => {
 }
 
 const vimLike = () => {
-  let home = document.getElementById('logo')
   let postlist = document.getElementById('postlist')
   let sections = document.getElementsByName('section')
   let article = document.getElementById('article')
@@ -38,16 +37,10 @@ const vimLike = () => {
       } else if (event.key == 'k') {
         i = (i == 0 || i == -1) ? 1 : i
         sections[--i].focus()
-      } else if (event.key == 'G') {
-        i = sections.length - 1
-        sections[i].focus()
       } else if (event.key == 'o') {
         sections[i].click()
-      } else if (event.key == 'u') {
-        home.click()
       }
     })
-
     let previous = document.getElementById('previous')
     let next = document.getElementById('next')
     window.addEventListener('keydown', event => {
@@ -88,7 +81,7 @@ const vimLike = () => {
           behavior: "smooth"
         })
       } else if (event.key == 'u') {
-        home.click()
+        history.back()
       }
     })
   }
@@ -166,7 +159,7 @@ window.onload = () => {
     'h - Previous page\n' +
     'l - Next page\n' +
     'o - Open the selected post\n' +
-    'u - Up to the home URL\n\n' +
+    'u - Go back to the postlist\n\n' +
     'And in article pages, you can also press J/K to scroll faster.\n' +
     'More shortcuts and features are comming soon!\n' +
     'If you have a better idea about this blog,\n' +
