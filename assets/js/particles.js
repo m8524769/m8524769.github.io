@@ -67,7 +67,6 @@ var pJS = function(tag_id){
       array: []
     },
     interactivity: {
-      detect_on: 'window',
       events: {
         onhover: {
           enable: true,
@@ -219,20 +218,21 @@ var pJS = function(tag_id){
         y_top: -p.radius,
         y_bottom: pJS.canvas.h + p.radius
       }
-      if(p.x - p.radius > pJS.canvas.w){
-        p.x = new_pos.x_left
+      var out_distance = pJS.particles.line_linked.distance
+      if(p.x - p.radius > pJS.canvas.w + out_distance){
+        p.x = new_pos.x_left - out_distance
         p.y = Math.random() * pJS.canvas.h
       }
-      else if(p.x + p.radius < 0){
-        p.x = new_pos.x_right
+      else if(p.x + p.radius < -out_distance){
+        p.x = new_pos.x_right + out_distance
         p.y = Math.random() * pJS.canvas.h
       }
-      if(p.y - p.radius > pJS.canvas.h){
-        p.y = new_pos.y_top
+      if(p.y - p.radius > pJS.canvas.h + out_distance){
+        p.y = new_pos.y_top - out_distance
         p.x = Math.random() * pJS.canvas.w
       }
-      else if(p.y + p.radius < 0){
-        p.y = new_pos.y_bottom
+      else if(p.y + p.radius < -out_distance){
+        p.y = new_pos.y_bottom + out_distance
         p.x = Math.random() * pJS.canvas.w
       }
       pJS.fn.modes.grabParticle(p)
