@@ -116,7 +116,7 @@ main {
         display: inherit; // flex
         flex-direction: column;
 
-        a[name="section"] {
+        a.section {
             background-color: #353535;
             margin: 0.4rem 1rem;
             padding: 0.4rem 2.1rem;

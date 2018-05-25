@@ -7,7 +7,7 @@ layout: default
     <div id="postlist">
 
         {% for post in paginator.posts %}
-            <a name="section" href="{{ post.url }}">
+            <a class="section" href="{{ post.url }}">
                 <h2>{{ post.title }}</h2>
                 {% if post.extend_excerpt %}
                     <p>{{ post.excerpt | strip_html | truncatewords:30 }}</p>

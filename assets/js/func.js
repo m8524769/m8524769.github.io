@@ -25,20 +25,17 @@ const randomBackground = () => {
 }
 
 const vimLike = () => {
-  let postlist = document.getElementById('postlist')
-  let sections = document.getElementsByName('section')
-  let article = document.getElementById('article')
-
-  if (postlist) { // In post list
+  let postlist = document.querySelectorAll('#postlist > a.section')
+  if (postlist.length) { // In post list
     let i = -1
     window.addEventListener('keypress', event => {
-      if (event.key == 'j' && i < sections.length - 1) {
-        sections[++i].focus()
+      if (event.key == 'j' && i < postlist.length - 1) {
+        postlist[++i].focus()
       } else if (event.key == 'k') {
         i = (i == 0 || i == -1) ? 1 : i
-        sections[--i].focus()
+        postlist[--i].focus()
       } else if (event.key == 'o') {
-        sections[i].click()
+        postlist[i].click()
       }
     })
     let previous = document.getElementById('previous')
@@ -60,6 +57,7 @@ const vimLike = () => {
       }
     })
   } else { // In article page
+    let article = document.getElementById('article')
     window.addEventListener('keypress', event => {
       if (event.key == 'j') {
         scrollBy(0, 27)
@@ -103,11 +101,15 @@ const loadComment = () => {
 const lightUp = () => {
   let bg = document.getElementById('bg')
   bg.style.animation = "4s fadein forwards"
+  let header = document.getElementsByTagName('header')[0]
+  header.style.transition = "background-color 2s"
+  header.style.backgroundColor = "#35353588"
   let article = document.getElementById('article')
   if (article) {
     article.classList.add('light')
   }
   greeting.style.opacity = 0
+  greeting.style.cursor = "default"
 }
 
 window.onload = () => {
@@ -152,7 +154,7 @@ window.onload = () => {
 
   // Tips
   console.log(
-    '<<<<<<<<<< Little Secret >>>>>>>>>>\n' +
+    '</ Little Secret >\n' +
     'You can actually use vim-like shortcuts to control this web page.\n\n' +
     'j - Scroll down / Select below\n' +
     'k - Scroll up / Select above\n' +

@@ -11,21 +11,6 @@ code.highlighter-rouge {
     border-radius: 4px;
 }
 
-figure.highlight {
-    position: relative;
-    overflow-x: auto;
-    margin: 1rem 3rem;
-    padding: 0 1.1rem;
-    pre > code {
-        font-family: "Fira Code", $full-width, monospace;
-    }
-    font-size: 1.18rem;
-    line-height: 1.4;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-    background-color: #252525dd;
-}
-
 .light {
     background-color: #eeeeeedd;
     color: #252525dd;
@@ -52,7 +37,19 @@ figure.highlight {
     }
 }
 
-.highlight {
+figure.highlight {
+    position: relative;
+    overflow-x: auto;
+    margin: 1rem 3rem;
+    padding: 0 1.1rem;
+    pre > code {
+        font-family: "Fira Code", $full-width, monospace;
+    }
+    font-size: 1.18rem;
+    line-height: 1.4;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    background-color: #252525dd;
     .c { color: #93a1a1 } /* Comment */
     .err { color: #586e75 } /* Error */
     .g { color: #586e75 } /* Generic */
