@@ -23,7 +23,7 @@ self.onfetch = event => {
         return response
       }
       return fetch(event.request).then(response => {
-        if (response.type == 'basic') {
+        if (response.ok && response.type == 'basic') {
           return caches.open(CACHE_NAME).then(cache => {
             cache.put(event.request, response.clone())
             return response
