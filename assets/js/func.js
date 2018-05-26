@@ -1,8 +1,6 @@
 const randomBackground = () => {
   let bgImg = document.getElementById('bg')
-  let baseURL = 'https://source.unsplash.com/random/'
-  let resolution = `${screen.width}x${screen.height}`
-  let imageURL = baseURL.concat(resolution)
+  let imageURL = `https://source.unsplash.com/random/${screen.width}x${screen.height}`
 
   caches.match(imageURL).then(response => {
     bgImg.src = response.url
@@ -10,17 +8,20 @@ const randomBackground = () => {
     fetch(imageURL).then(response => {
       if (response.ok) {
         bgImg.src = response.url
-        caches.open('bg-next').then(cache => {
-          cache.put(imageURL, response)
-        })
       }
     })
   })
 
   fetch(imageURL).then(response => {
-    caches.open('bg-next').then(cache => {
-      cache.put(imageURL, response)
-    })
+    if (response.ok) {
+      let imgNext = new Image()
+      imgNext.src = response.url
+      imgNext.onload = () => {
+        caches.open('bg-next').then(cache => {
+          cache.put(imageURL, response)
+        })
+      }
+    }
   })
 }
 
@@ -147,8 +148,6 @@ window.onload = () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').then(registration => {
       console.log('ServiceWorker registration successful.')
-    }).catch(error => {
-      console.log('ServiceWorker registration failed: ', error)
     })
   }
 
