@@ -8,6 +8,7 @@ self.oninstall = event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll([
       '/',
+      '/offline.html',
       '/assets/css/main.css',
       '/assets/js/func.js',
       '/assets/js/particles.js',
@@ -18,19 +19,15 @@ self.oninstall = event => {
 
 self.onfetch = event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response && response.type == 'basic') {
-        return response
-      }
-      return fetch(event.request).then(response => {
-        if (response.ok && response.type == 'basic') {
-          return caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, response.clone())
-            return response
-          })
-        } else {
-          return response
-        }
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.match(event.request).then(response => {
+        let fetchPromise = fetch(event.request).then(networkResponse => {
+          if (networkResponse.ok && networkResponse.type == 'basic') {
+            cache.put(event.request, networkResponse.clone())
+          }
+          return networkResponse
+        }).catch(() => cache.match('offline.html'))
+        return response || fetchPromise
       })
     })
   )
