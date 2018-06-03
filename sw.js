@@ -6,14 +6,17 @@ let CACHE_NAME = 'yk-blog'
 
 self.oninstall = event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll([
-      '/',
-      '/offline.html',
-      '/assets/css/main.css',
-      '/assets/js/func.js',
-      '/assets/js/particles.js',
-      '/assets/js/anchor.js'
-    ]))
+    caches.open(CACHE_NAME).then(cache => {
+      cache.addAll([
+        '/assets/js/particles.js',
+        '/assets/js/anchor.js'
+      ])
+      return cache.addAll([
+        '/',
+        '/assets/css/main.css',
+        '/assets/js/func.js'
+      ])
+    })
   )
 }
 
