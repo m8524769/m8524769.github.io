@@ -151,13 +151,6 @@ window.onload = () => {
     })
   }
 
-  // Fetch offline.html
-  if (!sessionStorage.getItem('visited')) {
-    fetch('/offline.html').then(() => {
-      sessionStorage.setItem('visited', true)
-    })
-  }
-
   // Tips
   console.log(
     '</ Little Secret >\n' +
