@@ -1,6 +1,6 @@
 const randomBackground = () => {
   let bgImg = document.getElementById('bg')
-  let imageURL = `https://source.unsplash.com/random/${screen.width}x${screen.height}`
+  let imageURL = `https://source.unsplash.com/${screen.width}x${screen.height}`
 
   caches.match(imageURL).then(response => {
     bgImg.src = response.url
@@ -148,6 +148,13 @@ window.onload = () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').then(registration => {
       console.log('ServiceWorker registration successful.')
+    })
+  }
+
+  // Fetch offline.html
+  if (!sessionStorage.getItem('visited')) {
+    fetch('/offline.html').then(() => {
+      sessionStorage.setItem('visited', true)
     })
   }
 
