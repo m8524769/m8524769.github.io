@@ -3,9 +3,18 @@ layout: default
 permalink: /404.html
 ---
 
-<div class="oops">
-    <h1>The page you need isn't exist</h1>
-    <span>Oh, sh*t! It's a fatal error! The server will explode! NO!!!!!</span>
-    <span>BOOM!!</span>
-    <span>Now are you satisfied?</span>
+<div class="oops" onclick="keyword.focus()">
+    <h1><input id="keyword" type="text" size="25" placeholder="Wow! How did u find me here!?" autofocus></h1>
+    <span>Okey, I'm gonna tell you a secret in return :)</span>
+    <span>Now, try to type in a word and then refresh this page, see what happens</span>
+    <span>Enjoy it!</span>
 </div>
+
+<script>
+let keyword = document.getElementById('keyword')
+keyword.setAttribute('value', localStorage.unsplash_keyword || '')
+keyword.setSelectionRange(0, keyword.value.length)
+keyword.oninput = event => {
+    localStorage['unsplash_keyword'] = event.target.value
+}
+</script>

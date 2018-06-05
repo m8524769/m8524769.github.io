@@ -250,15 +250,30 @@ article {
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 78vh;
+    overflow: hidden;
+    height: 90vh;
+    h1 {
+        font-family: 'Crimson Text', $full-width, serif;
+        font-size: 6rem;
+        margin: 0;
+    }
     span {
-        margin: 0.2rem 0;
-        a {
-            color: #66d9ef;
-            &:hover {
-                border-bottom: 2px solid #66d9efdd;
-            }
-        }
+        margin: 0.12rem 0;
+    }
+}
+
+#keyword {
+    color: inherit;
+    background-color: inherit;
+    caret-color: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    &::placeholder {
+        color: inherit;
+        opacity: 1;
     }
 }
 

@@ -1,6 +1,7 @@
 const randomBackground = () => {
   let bgImg = document.getElementById('bg')
-  let imageURL = `https://source.unsplash.com/${screen.width}x${screen.height}`
+  let keyword = localStorage.unsplash_keyword || ''
+  let imageURL = `https://source.unsplash.com/${screen.width}x${screen.height}?${keyword}`
 
   caches.match(imageURL).then(response => {
     bgImg.src = response.url
@@ -27,6 +28,7 @@ const randomBackground = () => {
 
 const vimLike = () => {
   let postlist = document.querySelectorAll('#postlist > a.section')
+  let article = document.getElementById('article')
   if (postlist.length) { // In post list
     let i = -1
     window.addEventListener('keypress', event => {
@@ -57,8 +59,7 @@ const vimLike = () => {
         next.click()
       }
     })
-  } else { // In article page
-    let article = document.getElementById('article')
+  } else if (article) { // In article page
     window.addEventListener('keypress', event => {
       if (event.key == 'j') {
         scrollBy(0, 27)
@@ -86,19 +87,6 @@ const vimLike = () => {
   }
 }
 
-const loadComment = () => {
-  _hcwp = window._hcwp || []
-  _hcwp.push({ widget: "Stream", widget_id: 104126 })
-  if ("HC_LOAD_INIT" in window)
-    return;
-  HC_LOAD_INIT = true
-  let hcc = document.createElement("script")
-  hcc.src = "https://w.hypercomments.com/widget/hc/104126/en/widget.js"
-  hcc.async = true
-  let s = document.getElementsByTagName("script")[0]
-  s.parentNode.insertBefore(hcc, s.nextSibling)
-}
-
 const lightUp = () => {
   let bg = document.getElementById('bg')
   bg.style.animation = "4s fadein forwards"
@@ -116,7 +104,6 @@ const lightUp = () => {
 window.onload = () => {
   if (screen.width > 480) {
     randomBackground()
-    // loadComment()
     let greeting = document.getElementById('greeting')
     greeting.style.transition = "color 1s"
     if (sessionStorage.getItem('light')) {
@@ -128,7 +115,7 @@ window.onload = () => {
         "Have a good time anyway!!"
       ]
       let i = 0
-      greeting.addEventListener('click', () => {
+      greeting.onclick = () => {
         if (i < inners.length) {
           greeting.innerHTML = inners[i++]
         }
@@ -138,7 +125,7 @@ window.onload = () => {
           lightUp()
           sessionStorage.setItem('light', true)
         }
-      })
+      }
     }
     particlesJS('particles-js')
     vimLike()
