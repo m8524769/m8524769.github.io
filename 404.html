@@ -17,4 +17,9 @@ keyword.setSelectionRange(0, keyword.value.length)
 keyword.oninput = event => {
     localStorage['unsplash_keyword'] = event.target.value
 }
+keyword.onkeypress = event => {
+    if (event.key == 'Enter') {
+        location.reload()
+    }
+}
 </script>
