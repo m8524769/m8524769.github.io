@@ -15,6 +15,7 @@ html { font-size: 16px; }
 }
 @media only screen and (max-width: 480px) {
     html { font-size: 72%; }
+    body { margin: 0; }
     #article { margin: 0.7rem auto }
     .octicon-mark-github { height: 3.6rem; }
 }
@@ -22,8 +23,7 @@ html { font-size: 16px; }
 body {
     overflow: auto;
     min-width: 16rem;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #252525;
+    background: #252525;
     color: #ffffff;
     font-family: 'Open Sans', $full-width, sans-serif, $extra-symbol;
     font-size: 1.387rem;
@@ -47,6 +47,9 @@ a {
     transition: opacity 0.2s, border 0.2s;
 }
 
+::selection {
+    color: #18bfef;
+}
 
 header {
     height: 5rem;
@@ -275,11 +278,4 @@ article {
         color: inherit;
         opacity: 1;
     }
-}
-
-::selection {
-    color: #18bfef;
-}
-::-moz-selection {
-    color: #18bfef;
 }
