@@ -134,25 +134,30 @@ window.onload = () => {
   // Register Service Worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').then(registration => {
-      console.log('ServiceWorker registration successful.')
+      console.groupCollapsed('ServiceWorker registration successful.')
+      console.log(registration)
+      console.groupEnd()
     })
   }
 
   // Tips
+  console.info(
+    'Tips: You can actually use vim-like shortcuts to control this web page.'
+  )
+  console.group('Keybindings')
+  console.log('j - Scroll down / Select below')
+  console.log('k - Scroll up / Select above')
+  console.log('h - Previous page')
+  console.log('l - Next page')
+  console.log('o - Open the selected post')
+  console.log('u - Go back to the postlist')
+  console.groupEnd()
+  console.log('And in article pages, you can also press J/K to scroll faster.')
+
   console.log(
-    '</ Little Secret >\n' +
-    'You can actually use vim-like shortcuts to control this web page.\n\n' +
-    'j - Scroll down / Select below\n' +
-    'k - Scroll up / Select above\n' +
-    'h - Previous page\n' +
-    'l - Next page\n' +
-    'o - Open the selected post\n' +
-    'u - Go back to the postlist\n\n' +
-    'And in article pages, you can also press J/K to scroll faster.\n' +
     'More shortcuts and features are comming soon!\n' +
     'If you have a better idea about this blog,\n' +
     'just tell me on https://github.com/m8524769/m8524769.github.io/issues.\n' +
-    'I would really appreciate it!\n' +
-    'Have a good day! :)'
+    'I would really appreciate it!'
   )
 }
