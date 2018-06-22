@@ -23,7 +23,7 @@ html { font-size: 16px; }
 body {
     overflow: auto;
     min-width: 16rem;
-    background: #252525;
+    background: #212121;
     color: #ffffff;
     font-family: 'Open Sans', $full-width, sans-serif, $extra-symbol;
     font-size: 1.387rem;
@@ -53,13 +53,13 @@ a {
 
 header {
     height: 5rem;
-    background-color: #353535;
+    background: #353535;
     font-family: 'Fira Sans Condensed', sans-serif;
     color: #eeeeee;
     opacity: 0.95;
     transition: background-color 0.2s;
     &:hover {
-        background-color: #35353588;
+        background: #35353588;
     }
 
     display: flex;
@@ -102,7 +102,7 @@ header {
 }
 
 main {
-    // background-color: #8a8a8ac4;
+    // background: #8a8a8ac4;
     animation: 1s fadein;
     opacity: 0.95;
     margin: 1rem auto;
@@ -112,7 +112,7 @@ main {
     justify-content: center;
 
     #postlist {
-        // background-color: #b9b9b9c4;
+        // background: #b9b9b9c4;
         width: 48rem;
         min-width: 14rem;
 
@@ -120,7 +120,7 @@ main {
         flex-direction: column;
 
         a.section {
-            background-color: #353535;
+            background: #353535;
             margin: 0.4rem 1rem;
             padding: 0.4rem 2.1rem;
             transition: background-color 0.2s;
@@ -135,7 +135,7 @@ main {
                 margin-top: 0;
             }
             &:hover, &:focus-within {
-                background-color: #35353588;
+                background: #35353588;
             }
         }
 
@@ -147,14 +147,14 @@ main {
             align-items: center; // 垂直居中
 
             a {
-                background-color: #353535;
+                background: #353535;
                 width: 100%;
                 padding-top: 0.4rem; // Arrow 垂直居中
                 color: transparent;
                 fill: currentColor;
                 transition: color 0.2s, background-color 0.2s;
                 &:hover, &:focus-within {
-                    background-color: #35353588;
+                    background: #35353588;
                     color: #ffffff;
                 }
             }
@@ -178,7 +178,7 @@ main {
 
 article {
     animation: fadein 1s;
-    background-color: #353535;
+    background: #353535;
     opacity: 0.98;
     max-width: 48rem;
     margin: 1.3rem auto;
@@ -193,7 +193,7 @@ article {
         font-weight: 600;
     }
     time {
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-family: $system-serif, serif;
         font-style: italic;
     }
     a {
@@ -204,7 +204,7 @@ article {
     }
     blockquote {
         font-style: italic;
-        background-color: #252525dd;
+        background: #212121dd;
         color: #eeeeee;
         border-left: 2px solid #66d9ef;
         margin: 0;
@@ -213,7 +213,33 @@ article {
         padding: 0 2rem 0 4.8rem;
     }
     hr {
-        border: 1px solid #252525aa;
+        border: 1px solid #212121aa;
+    }
+}
+
+.light {
+    background: #eeeeeedd;
+    color: #252525dd;
+    transition: 1s;
+    code.highlighter-rouge {
+        background: #eeeeee88;
+        color: #252525cc;
+        border: 1px solid #ffffff;
+        border-radius: 0;
+    }
+    figure.highlight {
+        color: #ffffff;
+    }
+    blockquote {
+        background: #eeeeee88;
+        color: #252525cc;
+        border-left: 3px solid #35353588;
+    }
+    a {
+        color: #ae81ff;
+        &:hover {
+            border-bottom: 2px solid #ae81ffdd;
+        }
     }
 }
 
@@ -224,7 +250,7 @@ article {
     opacity: 0.75;
     transition: 0.5s;
     &:hover {
-        background-color: #ffffff;
+        background: #ffffff;
         opacity: 0.98;
     }
 }
@@ -267,7 +293,7 @@ article {
 
 #keyword {
     color: inherit;
-    background-color: inherit;
+    background: inherit;
     caret-color: transparent;
     border: none;
     outline: none;

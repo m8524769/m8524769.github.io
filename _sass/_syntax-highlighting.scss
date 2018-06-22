@@ -1,45 +1,18 @@
 /* ==========================================================================
-   Syntax highlighting
+   Syntax Highlighting
    ========================================================================== */
 
 code.highlighter-rouge {
-    background-color: #252525dd;
+    background-color: #212121dd;
     color: #66d9ef;
     font-family: "Fira Code", monospace;
     font-size: 1.2rem;
-    border: 2px solid #00000000;
+    border: 2px solid transparent;
     border-radius: 4px;
 }
 
-.light {
-    background-color: #eeeeeedd;
-    color: #252525dd;
-    transition: 1s;
-    code.highlighter-rouge {
-        background-color: #eeeeee88;
-        color: #252525cc;
-        border: 1px solid #ffffff;
-        border-radius: 0;
-    }
-    figure.highlight {
-        color: #ffffff;
-    }
-    blockquote {
-        background-color: #eeeeee88;
-        color: #252525cc;
-        border-left: 3px solid #35353588;
-    }
-    a {
-        color: #ae81ff;
-        &:hover {
-            border-bottom: 2px solid #ae81ffdd;
-        }
-    }
-}
-
 figure.highlight {
-    position: relative;
-    overflow-x: auto;
+    background: #212121dd;
     margin: 1rem 3rem;
     padding: 0 1.1rem;
     pre > code {
@@ -47,9 +20,9 @@ figure.highlight {
     }
     font-size: 1.18rem;
     line-height: 1.4;
+    overflow-x: auto;
     border: 1px solid #eeeeee;
     border-radius: 4px;
-    background-color: #252525dd;
     .c { color: #93a1a1 } /* Comment */
     .err { color: #586e75 } /* Error */
     .g { color: #586e75 } /* Generic */
