@@ -14,7 +14,7 @@ self.oninstall = event => {
       return cache.addAll([
         '/',
         '/assets/css/main.css',
-        '/assets/js/func.js'
+        '/assets/js/index.js'
       ])
     })
   )
