@@ -1,4 +1,4 @@
 _site/
+vendor/
 .sass-cache/
-Gemfile.lock
 draft.html
