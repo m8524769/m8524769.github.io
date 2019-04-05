@@ -2,6 +2,8 @@
 
 _Personal Blog, powered by Jekyll and Github Pages_
 
+![Travis (.com)](https://img.shields.io/travis/com/m8524769/m8524769.github.io.svg)
+
 ![Screenshot](Screenshot.png)
 
 > Version: 1.0 Beta (Developing...)<br>
@@ -67,4 +69,4 @@ _Personal Blog, powered by Jekyll and Github Pages_
 
 ## The MIT [License](LICENSE)
 
-Copyright (c) 2017-2018, yk (m8524769@163.com)
+Copyright (c) 2017-2019, yk (m8524769@163.com)
