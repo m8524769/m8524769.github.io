@@ -202,6 +202,9 @@ article {
             border-bottom: 2px solid #66d9efdd;
         }
     }
+    img {
+        width: 100%;
+    }
     blockquote {
         font-style: italic;
         background: #212121dd;
@@ -209,8 +212,8 @@ article {
         border-left: 2px solid #66d9ef;
         margin: 0;
     }
-    ul {
-        padding: 0 2rem 0 4.8rem;
+    & > ul {
+        padding: 0 3rem 0 4.8rem;
     }
     hr {
         border: 1px solid #212121aa;
