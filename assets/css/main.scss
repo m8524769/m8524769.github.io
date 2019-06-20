@@ -199,7 +199,7 @@ article {
     a {
         color: #66d9ef;
         &:hover {
-            border-bottom: 2px solid #66d9efdd;
+            text-decoration: underline;
         }
     }
     img {
@@ -212,8 +212,22 @@ article {
         border-left: 2px solid #66d9ef;
         margin: 0;
     }
-    & > ul {
+    & > ul, ol {
         padding: 0 3rem 0 4.8rem;
+    }
+    table {
+        font-size: 1.2rem;
+        margin: 1rem 3rem;
+        border-collapse: collapse;
+    }
+    thead > tr, tbody > tr:nth-child(even) {
+        background-color: #30303088;
+    }
+    tbody > tr:nth-child(odd) {
+        background-color: #23232388;
+    }
+    th, td {
+        padding: 8px 14px;
     }
     hr {
         border: 1px solid #212121aa;
@@ -230,19 +244,25 @@ article {
         border: 1px solid #ffffff;
         border-radius: 0;
     }
-    figure.highlight {
+    div.highlight {
         color: #ffffff;
     }
     blockquote {
-        background: #eeeeee88;
+        background: #ffffff88;
         color: #252525cc;
         border-left: 3px solid #35353588;
     }
     a {
         color: #ae81ff;
         &:hover {
-            border-bottom: 2px solid #ae81ffdd;
+            text-decoration: underline;
         }
+    }
+    thead > tr, tbody > tr:nth-child(even) {
+        background-color: #ffffff88;
+    }
+    tbody > tr:nth-child(odd) {
+        background-color: #eeeeee88;
     }
 }
 

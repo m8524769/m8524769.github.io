@@ -2,23 +2,23 @@
    Syntax Highlighting
    ========================================================================== */
 
+code {
+    font-family: "Fira Code", $full-width, monospace;
+}
+
 code.highlighter-rouge {
     background-color: #212121dd;
     color: #66d9ef;
-    font-family: "Fira Code", monospace;
     font-size: 1.2rem;
     padding: 0 4px;
     border: 2px solid transparent;
     border-radius: 4px;
 }
 
-figure.highlight {
+div.highlight {
     background: #212121dd;
     margin: 1rem 0;
     padding: 0 3rem;
-    pre > code {
-        font-family: "Fira Code", $full-width, monospace;
-    }
     font-size: 1.18rem;
     line-height: 1.4;
     overflow-x: auto;

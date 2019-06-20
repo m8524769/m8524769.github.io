@@ -109,17 +109,17 @@ window.onload = () => {
     if (sessionStorage.getItem('light')) {
       lightUp()
     } else {
-      let inners = [
+      let messages = [
         "Fantastic to have you here!",
         "It's my blog and I wish you like it",
         "Have a good time anyway!!"
       ]
-      let i = 0
+      let clickCount = 0
       greeting.onclick = () => {
-        if (i < inners.length) {
-          greeting.innerHTML = inners[i++]
+        if (clickCount < messages.length) {
+          greeting.innerHTML = messages[clickCount++]
         }
-        if (i == inners.length) {
+        if (clickCount == messages.length) {
           greeting.style.transition = "opacity 2s"
           greeting.style.color = "#eeeeee"
           lightUp()
