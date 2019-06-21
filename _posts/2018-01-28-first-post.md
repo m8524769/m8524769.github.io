@@ -28,13 +28,6 @@ _Double:_ 。：，;（×！？‘’、“”）
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. (中文字体测试)File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
-title|name|date
----|---|---
-123|123|123
-456|456|456
-色的人|angular|
-123|123|123
-
 译文标题 | 发表于 | 原文链接
 --- | --- | :---:
 [RxJS: 操作符状态管理](RxJS-Managing-Operator-State/README.md) | 2019-2-12 | [Angular In Depth](https://blog.angularindepth.com/rxjs-managing-operator-state-2f20681df21d)
